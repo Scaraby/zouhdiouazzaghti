@@ -13,10 +13,12 @@ void testSFML() {
 
 using namespace std;
 
+
 int main(int argc,char* argv[]) 
 {
 
     cout << "It works !" << endl;
+    cout << "Hello world";
 
     return 0;
 }
