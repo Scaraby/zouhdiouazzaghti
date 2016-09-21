@@ -28,8 +28,8 @@ run:
 	./bin/run
 
 test:
-	docker build -t plt-initial -f docker/plt-initial .
-	docker build -t plt-build -f docker/plt-build .
+	docker build --no-cache=true -t plt-initial -f docker/plt-initial .
+	docker build --no-cache=true -t plt-build -f docker/plt-build .
 	./docker/run_docker_x11.sh plt-build
 
 start-kit: distclean
