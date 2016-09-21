@@ -18,7 +18,7 @@ int main(int argc,char* argv[])
 {
 
     cout << "It works !" << endl;
-    cout << "Hello world";
+    cout << "Hello world 2";
 
     return 0;
 }
