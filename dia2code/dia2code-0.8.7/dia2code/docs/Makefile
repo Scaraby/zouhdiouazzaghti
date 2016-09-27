@@ -108,12 +108,21 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
+<<<<<<< HEAD
+ACLOCAL = ${SHELL} /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7/missing --run aclocal-1.12
+AMTAR = $${TAR-tar}
+AR = ar
+AUTOCONF = ${SHELL} /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7/missing --run automake-1.12
+=======
 ACLOCAL = ${SHELL} /home/reda/Projet3A/dia2code/dia2code-0.8.7/missing --run aclocal-1.12
 AMTAR = $${TAR-tar}
 AR = ar
 AUTOCONF = ${SHELL} /home/reda/Projet3A/dia2code/dia2code-0.8.7/missing --run autoconf
 AUTOHEADER = ${SHELL} /home/reda/Projet3A/dia2code/dia2code-0.8.7/missing --run autoheader
 AUTOMAKE = ${SHELL} /home/reda/Projet3A/dia2code/dia2code-0.8.7/missing --run automake-1.12
+>>>>>>> 9aa610a517c4afec4e735c7d0edc1d41d4f01433
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -138,7 +147,11 @@ LDFLAGS =  -rdynamic
 LIBOBJS = 
 LIBS =  -lxml2 -ldl
 LTLIBOBJS = 
+<<<<<<< HEAD
+MAKEINFO = ${SHELL} /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7/missing --run makeinfo
+=======
 MAKEINFO = ${SHELL} /home/reda/Projet3A/dia2code/dia2code-0.8.7/missing --run makeinfo
+>>>>>>> 9aa610a517c4afec4e735c7d0edc1d41d4f01433
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = dia2code
@@ -156,10 +169,17 @@ STRIP =
 VERSION = 0.8.7
 XML_CONFIG = /usr/bin/xml2-config
 XML_INCLUDES = -I/usr/include/libxml2
+<<<<<<< HEAD
+abs_builddir = /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7/dia2code/docs
+abs_srcdir = /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7/dia2code/docs
+abs_top_builddir = /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7
+abs_top_srcdir = /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7
+=======
 abs_builddir = /home/reda/Projet3A/dia2code/dia2code-0.8.7/dia2code/docs
 abs_srcdir = /home/reda/Projet3A/dia2code/dia2code-0.8.7/dia2code/docs
 abs_top_builddir = /home/reda/Projet3A/dia2code/dia2code-0.8.7
 abs_top_srcdir = /home/reda/Projet3A/dia2code/dia2code-0.8.7
+>>>>>>> 9aa610a517c4afec4e735c7d0edc1d41d4f01433
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -178,7 +198,11 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
+<<<<<<< HEAD
+install_sh = ${SHELL} /home/scaraby/Desktop/Projet3A/dia2code/dia2code-0.8.7/install-sh
+=======
 install_sh = ${SHELL} /home/reda/Projet3A/dia2code/dia2code-0.8.7/install-sh
+>>>>>>> 9aa610a517c4afec4e735c7d0edc1d41d4f01433
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale

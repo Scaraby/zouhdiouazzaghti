@@ -1,5 +1,8 @@
 #include <iostream>
 
+//te Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
+#include <SFML/Graphics.hpp>
+//coucou lotestl
 //Salut  Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 #include <SFML/Graphics.hpp>
 
@@ -18,7 +21,6 @@ int main(int argc,char* argv[])
 {
 
     cout << "It works !" << endl;
-    cout << "Salut" << endl;
 
     return 0;
 }
