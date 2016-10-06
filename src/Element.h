@@ -6,7 +6,15 @@
 class Element {
   // Attributes
 public:
+  Element();
+  ~Element();
   Direction Orientation;
+  int const getX();
+  int const getY();
+  void const setX(int x);
+  void const setY(int y);
+  is Static : bool const;
+  
 protected:
   int x;
   int y;
