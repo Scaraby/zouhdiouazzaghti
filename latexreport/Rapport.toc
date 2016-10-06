@@ -2,3 +2,5 @@
 \contentsline {chapter}{\numberline {1}Objectif}{2}
 \contentsline {section}{\numberline {1.1}Pr\IeC {\'e}sentation g\IeC {\'e}n\IeC {\'e}rale}{2}
 \contentsline {section}{\numberline {1.2}R\IeC {\`e}gles du jeu}{3}
+\contentsline {chapter}{\numberline {2}Changelog}{4}
+\contentsline {section}{\numberline {2.1}Livrable, Jalon 1}{4}
