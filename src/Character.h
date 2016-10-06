@@ -6,11 +6,12 @@
 class Character : public Element {
   // Attributes
 protected:
-   speed;
-   position;
-   strength;
-   xp;
-   level;
+   int speed;
+   int position;
+   int strength;
+   int xp;
+   int level;
+   Direction d;
   // Operations
 public:
   Character ();
@@ -21,10 +22,12 @@ public:
   void setDirection (Direction d);
   void setSpeed (int s);
   CharacterStatus const getStatus ();
-  setStrength ();
+  setStrength (int strenght);
   getStrength ();
-  setXP ();
+  setXP (int XP);
   getXP ();
+  getLevel();
+  setLevel(int l);
 };
 
 #endif
