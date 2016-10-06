@@ -12,7 +12,7 @@ void testSFML() {
 
 // Fin test SFML
 
-#include "state.hpp"
+
 
 using namespace std;
 

@@ -3,33 +3,28 @@
 #define CHARACTER__H
 
 /// class Character - 
-class Character : public Element {
+class Character {
   // Attributes
 protected:
-   int speed;
-   int position;
-   int strength;
-   int xp;
-   int level;
-   int movement_points;
-   int action_points;
-   Direction d;
+  int speed;
+  int position;
+  int strength;
+  int xp;
+  int level;
+  int hitpoints;
   // Operations
 public:
   Character ();
   bool const isCharacter ();
-  TypeId const getTypeId ();
   int const getSpeed ();
   int const getPosition ();
-  void setDirection (Direction d);
   void setSpeed (int s);
-  CharacterStatus const getStatus ();
-  void setStrength (int strenght);
-  int const getStrength ();
-  void setXP (int XP);
+  void setStrength ();
+  const int getStrength ();
+  void setXP ();
   int const getXP ();
-  int const getLevel();
-  void setLevel(int l);
+  void attaquer ();
+  ~Character ();
 };
 
 #endif
