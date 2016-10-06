@@ -60,10 +60,36 @@
 \par\leavevmode\
 
 \item Système d'interaction avec les personnages joueur ou non-joueur (discussions, interface d'échange d'objets)
-
-
-
 \end{itemize}
+
+    \chapter{Description et conception des états du jeu}
+    
+    \section{Description des états}
+    Un état du jeu est défini par les éléments suivants :
+    
+\begin{itemize}
+    
+
+    \item  \textbf{Les élements d'espace} (classe Space), élément immobiles permettant de définir les zones où les personnages peuvent se déplacer (\textit{e.g} herbe, sable, neige...). Sur les bords de la zone (définie par la grille, constituée des éléments fixes Space et Wall), l'attribut booléen "changemap" est "True", ce qui permet au personnage de changer de zone.
+   \par\leavevmode\
+
+    \item  \textbf{Les élements de mur} (classe Wall), définissant les zones où un personnage ne peut se déplacer (\textit{e.g}  mur)
+    
+         
+\par\leavevmode\
+    \item \textbf{Les personnages} (classe Character), éléments mobiles se déplaçant sur la grille (ou plus exactement sur les cases définies par les classes Space). Ces éléments peuvent être contrôlés soit par l'humain (Personnage joueur), soit par les IA (Personnages non joueurs). Les personnages possèdent trois status possibles :
+    \begin{itemize}
+    
+    \item YOURTURN : Le tour du personnage. Il aura le droit de dépenser des points de mouvements pour se déplacer sur la map, ou des points d'actions pour endommager les adversaires.
+    \item HISTURN : Le tour des autres personnages. Le personnage doit rester immobile et subir les actions des autres personnages jusqu'à ce que son tour arrive.
+    \item  DEAD : Le personnage ne peut plus bouger, son tour n'arrivant jamais. Il est mort.
+    \end{itemize}
+    
+    \end{itemize}
+    
+    	\section{Livrable, Jalon 1}
+    
+	\section{Livrable, Jalon 1}
     
     \chapter{Changelog}
     \section{Livrable, Jalon 1}
