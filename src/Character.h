@@ -22,12 +22,12 @@ public:
   void setDirection (Direction d);
   void setSpeed (int s);
   CharacterStatus const getStatus ();
-  setStrength (int strenght);
-  getStrength ();
-  setXP (int XP);
-  getXP ();
-  getLevel();
-  setLevel(int l);
+  void setStrength (int strenght);
+  int const getStrength ();
+  void setXP (int XP);
+  int const getXP ();
+  int const getLevel();
+  void setLevel(int l);
 };
 
 #endif
