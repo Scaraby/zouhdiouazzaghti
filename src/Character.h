@@ -11,6 +11,8 @@ protected:
    int strength;
    int xp;
    int level;
+   int movement_points;
+   int action_points;
    Direction d;
   // Operations
 public:
