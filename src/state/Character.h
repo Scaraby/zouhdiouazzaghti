@@ -2,6 +2,7 @@
 #ifndef STATE__CHARACTER__H
 #define STATE__CHARACTER__H
 
+#include <string>
 
 namespace state {
   class Element;
@@ -21,7 +22,7 @@ namespace state {
     int xp;
     int level;
     int hitpoints;
-    char name;
+    std::string name;
     // Operations
   public:
     Character ();
@@ -34,6 +35,12 @@ namespace state {
     int getXP ();
     void attack ();
     ~Character ();
+    int getHitPoints ();
+    void setHitPoints (int hitPoints);
+    std::string getName ( );
+    void setName (std::string name);
+    int getLevel ();
+    void setLevel (int level);
   };
 
 };
