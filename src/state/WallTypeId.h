@@ -6,10 +6,10 @@
 namespace state {
 
   enum WallTypeId {
-    TopLeft,
-    TopRight,
-    BottomRight,
-    BottomLeft
+    TopLeft     = 1,
+    TopRight     = 2,
+    BottomRight     = 3,
+    BottomLeft     = 4
   };
 
 };
