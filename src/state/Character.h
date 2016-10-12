@@ -26,13 +26,13 @@ namespace state {
   public:
     Character ();
     bool const isCharacter ();
-    int const getSpeed ();
-    int const getPosition ();
+    int getSpeed ();
+    int getPosition ();
     void setSpeed (int speed);
     void setStrength (int strength);
     int getStrength ();
-    void setXP ();
-    int const getXP ();
+    void setXP (int xp);
+    int getXP ();
     void attack ();
     ~Character ();
   };
