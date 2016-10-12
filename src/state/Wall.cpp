@@ -1,6 +1,14 @@
 #include "Wall.h"
 
 
- bool const isSpace ();
-    WallTypeId const getWallTypeId ();
-    void setWallTypeId (WallTypeId id);
+
+namespace state{
+
+Wall::Wall()
+{
+
+}
+
+
+
+}

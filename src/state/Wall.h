@@ -17,6 +17,7 @@ namespace state {
     // Associations
     // Operations
   public:
+    Wall ();
     bool const isSpace ();
     WallTypeId const getWallTypeId ();
     void setWallTypeId (WallTypeId id);

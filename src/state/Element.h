@@ -14,6 +14,10 @@ namespace state {
     // Operations
   public:
     bool const isStatic ();
+    int getX ();
+    int getY ();
+    void setX (int x);
+    void setY (int y);
   };
 
 };

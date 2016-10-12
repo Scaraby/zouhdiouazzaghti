@@ -27,7 +27,6 @@ namespace state {
     Character ();
     bool const isCharacter ();
     int getSpeed ();
-    int getPosition ();
     void setSpeed (int speed);
     void setStrength (int strength);
     int getStrength ();
