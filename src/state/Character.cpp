@@ -1,7 +1,7 @@
 #include "Character.h"
 
 
-Character::Character ()
+state::Character::Character() 
 {
     
 }
