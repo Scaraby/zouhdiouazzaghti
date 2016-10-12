@@ -17,7 +17,6 @@ namespace state {
     // Attributes
   protected:
     int speed;
-    int position;
     int strength;
     int xp;
     int level;
@@ -35,12 +34,14 @@ namespace state {
     int getXP ();
     void attack ();
     ~Character ();
-    int getHitPoints ();
-    void setHitPoints (int hitPoints);
-    std::string getName ( );
-    void setName (std::string name);
     int getLevel ();
+    int getHitPoints ();
+    std::string getName ();
+    /// 	
+    /// @param level		(???) 
     void setLevel (int level);
+    void setHitPoints (int hitpoints);
+    void setName (std::string name);
   };
 
 };

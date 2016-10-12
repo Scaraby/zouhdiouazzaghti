@@ -8,7 +8,7 @@ namespace state {
   /// class Element - 
   class Element {
     // Attributes
-  public:
+  protected:
     int x;
     int y;
     // Operations
