@@ -4,8 +4,9 @@
 
 #include "state/Element.h"
 #include "state/Character.h"
-#include "state/Static.h"
+#include "state/StaticElement.h"
 #include "state/WallTypeId.h"
 #include "state/Wall.h"
+#include "state/SpaceTypeId.h"
 #include "state/Space.h"
 #endif

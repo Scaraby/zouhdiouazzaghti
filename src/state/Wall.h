@@ -4,16 +4,16 @@
 
 
 namespace state {
-  class Static;
+  class StaticElement;
 }
 
 #include "WallTypeId.h"
-#include "Static.h"
+#include "StaticElement.h"
 
 namespace state {
 
   /// class Wall - 
-  class Wall : public state::Static {
+  class Wall : public state::StaticElement {
     // Associations
     // Operations
   public:

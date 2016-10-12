@@ -4,18 +4,22 @@
 
 
 namespace state {
-  class Static;
+  class StaticElement;
 }
 
-#include "Static.h"
+#include "SpaceTypeId.h"
+#include "StaticElement.h"
 
 namespace state {
 
   /// class Space - 
-  class Space : public state::Static {
+  class Space : public state::StaticElement {
+    // Associations
     // Operations
   public:
     bool const isSpace ();
+    SpaceTypeId getSpaceTypeId ();
+    void setSpaceTypeId (SpaceTypeId id);
   };
 
 };
