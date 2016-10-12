@@ -1,8 +1,10 @@
 #include "Character.h"
 
+namespace state{
 
-state::Character::Character() 
-{
+ Character::Character() 
+ {
     
-}
+ }
 
+}
