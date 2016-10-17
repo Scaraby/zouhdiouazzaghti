@@ -9,4 +9,7 @@
 #include "state/Wall.h"
 #include "state/SpaceTypeId.h"
 #include "state/Space.h"
+#include "state/AElementFabricator.h"
+#include "state/Factory.h"
+#include "state/ElementFabricator.h"
 #endif
