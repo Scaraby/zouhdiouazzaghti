@@ -5,20 +5,12 @@
 
 namespace state {
   class Element;
-  class AElementFabricator;
 }
-
-#include "AElementFabricator.h"
 
 namespace state {
 
   /// class ElementFabricator - 
-  template <  class T,   typename Key>
-  class ElementFabricator : public state::AElementFabricator {
-    // Attributes
-  public:
-    Key key;
-     kek;
+  class ElementFabricator {
     // Operations
   public:
     virtual Element* generate ();

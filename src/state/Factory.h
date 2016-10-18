@@ -2,28 +2,29 @@
 #ifndef STATE__FACTORY__H
 #define STATE__FACTORY__H
 
+#include <string>
 #include <map>
+#include <memory>
 
 namespace state {
   class Element;
-  class Factory;
-  class AElementFabricator;
+  class ElementFabricator;
 }
 
-#include "AElementFabricator.h"
+#include "ElementFabricator.h"
 
 namespace state {
 
   /// class Factory - 
-  class Factory {
-    // Associations
+  template <  class T>
+  class Factory : public state::ElementFabricator {
     // Attributes
   public:
-    std::map<char,ElementFabricator> registry;
+    std::map<std::string, std::unique_ptr<ElementFabricator>> registry;
     // Operations
   public:
-    virtual Element* generate (char key);
-    void register (char key, Factory f);
+    virtual Element* generate (std::string key);
+    void register (std::string key);
   };
 
 };
