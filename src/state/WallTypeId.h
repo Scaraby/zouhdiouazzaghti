@@ -9,7 +9,9 @@ namespace state {
     TopLeft     = 1,
     TopRight     = 2,
     BottomRight     = 3,
-    BottomLeft     = 4
+    BottomLeft     = 4,
+    Horizontal     = 5,
+    Vertical     = 6
   };
 
 };

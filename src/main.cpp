@@ -1,7 +1,5 @@
 #include <iostream>
 
-//te Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
-#include <SFML/Graphics.hpp>
 //coucou lotestl
 //Salut  Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 #include <SFML/Graphics.hpp>
@@ -16,7 +14,7 @@ int testSFML() {
     {
         10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
         10, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 10,
-        10, 3, 4, 9, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 10,
+        10, 3, 4, 9, 4, 4, 4, 4, 4, 4, 4, 4, 9, 4, 5, 10,
         10, 3, 4, 4, 4, 9, 4, 4, 4, 4, 4, 4, 4, 4, 5, 10,
         10, 3, 9, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 10,
         10, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 9, 4, 4, 5, 10,
