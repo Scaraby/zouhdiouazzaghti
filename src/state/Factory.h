@@ -16,7 +16,6 @@ namespace state {
 namespace state {
 
   /// class Factory - 
-  template <  class T>
   class Factory : public state::ElementFabricator {
     // Attributes
   public:
