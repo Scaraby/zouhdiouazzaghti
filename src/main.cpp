@@ -9,26 +9,26 @@
 
 int testSFML() {
     sf::Texture texture;
-    sf::RenderWindow window(sf::VideoMode(512, 256), "Tilemap");
+    sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
 
     // on définit le niveau à l'aide de numéro de tuiles
-     int level[] =
+     const int level[] =
     {
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0,
-        1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3,
-        0, 1, 0, 0, 2, 0, 3, 3, 3, 0, 1, 1, 1, 0, 0, 0,
-        0, 1, 1, 0, 3, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 0,
-        0, 0, 1, 0, 3, 0, 2, 2, 0, 0, 1, 1, 1, 1, 2, 0,
-        2, 0, 1, 0, 3, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1,
-        0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 10,
+        10, 3, 4, 9, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 10,
+        10, 3, 4, 4, 4, 9, 4, 4, 4, 4, 4, 4, 4, 4, 5, 10,
+        10, 3, 9, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 10,
+        10, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 9, 4, 4, 5, 10,
+        10, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
     };
     
      
     
     // on crée la tilemap avec le niveau précédemment défini
     TileMap map;
-    if (!map.load("../Textures/PNG/mapTile_001.png", sf::Vector2u(32, 32), level, 16, 8))
+    if (!map.load("../Textures/PNG/TileSet.png", sf::Vector2u(64, 64), level, 16, 8))
         return -1;
 
     // on fait tourner la boucle principale
