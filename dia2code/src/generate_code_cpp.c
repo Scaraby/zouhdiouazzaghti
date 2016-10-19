@@ -714,7 +714,8 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
        }
 
        if (strstr(name,"sf::Drawable")){
- 	   print ("#include "SFML/Graphics.h")
+ 	   print ("#include "SFML/Graphics.hpp");
+	}
 
        if (!si->unordered_map && strstr(name,"std::unordered_map")) {
            print ("#include <unordered_map>\n");
