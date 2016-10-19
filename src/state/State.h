@@ -4,15 +4,17 @@
 
 
 namespace state {
+  class Observable;
   class ElementList;
 }
 
+#include "Observable.h"
 #include "ElementList.h"
 
 namespace state {
 
   /// class State - 
-  class State {
+  class State : public state::Observable {
     // Associations
     // Operations
   public:

@@ -2,5 +2,6 @@
 #ifndef __SF__H
 #define __SF__H
 
+#include "sf/Transformable.h"
 #include "sf/Drawable.h"
 #endif

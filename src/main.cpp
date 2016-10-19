@@ -5,7 +5,11 @@
 #include <SFML/Graphics.hpp>
 #include "Rendu.hpp"
 
-int testSFML() {
+
+using namespace std;
+
+int generateMap() {
+     TileMap map;
     sf::Texture texture;
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
 
@@ -25,7 +29,7 @@ int testSFML() {
      
     
     // on crée la tilemap avec le niveau précédemment défini
-    TileMap map;
+    
     if (!map.load("../Textures/PNG/TileSet.png", sf::Vector2u(64, 64), level, 16, 8))
         return -1;
 
@@ -48,18 +52,11 @@ int testSFML() {
     return 0;
 }
 
-// Fin test SFML
-
-
-
-using namespace std;
-
-
 int main(int argc,char* argv[]) 
-{
- 
+{   
+    generateMap();
     cout << "It works !" << endl;
-    testSFML();
+    
 
     return 0;
 }

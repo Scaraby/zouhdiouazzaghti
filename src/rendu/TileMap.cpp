@@ -3,19 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-#include "TileMap.h"
+#include "Tile.h"
 #include "SFML/Graphics.hpp"
+#include <string>
+
+
 
 namespace rendu {
-
-bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height){
-   
+  
+    
+bool Tile::load(const std::string& tileset, sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height){
+    
     if (!m_tileset.loadFromFile(tileset))
             return false;
 
         // on redimensionne le tableau de vertex pour qu'il puisse contenir tout le niveau
-        TileMap::m_verticles.setPrimitiveType(sf::Quads);
-        TileMap::m_verticles.resize(width * height * 4);
+        Tile::m_verticles.setPrimitiveType(sf::Quads);
+        Tile::m_verticles.resize(width * height * 4);
 
         // on remplit le tableau de vertex, avec un quad par tuile
         for (unsigned int i = 0; i < width; ++i)
@@ -47,7 +51,7 @@ bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize, const int*
         return true;
 }
 
-void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+ void Tile::draw(sf::RenderTarget& target, sf::RenderStates& states) const {
     // on applique la transformation
         states.transform *= getTransform();
 
@@ -55,7 +59,8 @@ void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const{
         states.texture = &m_tileset;
 
         // et on dessine enfin le tableau de vertex
-        target.draw(m_vertices, states);
+        target.draw(m_verticles, states);
 }
 
+ 
 }

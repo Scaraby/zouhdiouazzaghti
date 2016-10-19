@@ -2,5 +2,5 @@
 #ifndef __RENDU__H
 #define __RENDU__H
 
-#include "rendu/TileMap.h"
+#include "rendu/Tile.h"
 #endif
