@@ -24,6 +24,7 @@
 #include "decls.h"
 #include "includes.h"
 
+
 #define SPEC_EXT "h"
 #define BODY_EXT "cpp"
 
@@ -711,6 +712,10 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
            print ("#include <queue>\n");
            si->queue = 1;
        }
+
+       if (strstr(name,"sf::Drawable")){
+ 	   print ("#include "SFML/Graphics.h")
+
        if (!si->unordered_map && strstr(name,"std::unordered_map")) {
            print ("#include <unordered_map>\n");
            si->unordered_map = 1;
