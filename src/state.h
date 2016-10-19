@@ -13,4 +13,8 @@
 #include "state/Factory.h"
 #include "state/ElementList.h"
 #include "state/State.h"
+#include "state/StateEventId.h"
+#include "state/StateEvent.h"
+#include "state/StateObserver.h"
+#include "state/Observable.h"
 #endif

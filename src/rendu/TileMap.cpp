@@ -6,14 +6,16 @@
 #include "TileMap.h"
 #include "SFML/Graphics.hpp"
 
+namespace rendu {
+
 bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height){
    
     if (!m_tileset.loadFromFile(tileset))
             return false;
 
         // on redimensionne le tableau de vertex pour qu'il puisse contenir tout le niveau
-        m_vertices.setPrimitiveType(sf::Quads);
-        m_vertices.resize(width * height * 4);
+        TileMap::m_verticles.setPrimitiveType(sf::Quads);
+        TileMap::m_verticles.resize(width * height * 4);
 
         // on remplit le tableau de vertex, avec un quad par tuile
         for (unsigned int i = 0; i < width; ++i)
@@ -27,7 +29,7 @@ bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize, const int*
                 int tv = tileNumber / (m_tileset.getSize().x / tileSize.x);
 
                 // on récupère un pointeur vers le quad à définir dans le tableau de vertex
-                sf::Vertex* quad = &m_vertices[(i + j * width) * 4];
+                sf::Vertex* quad = &m_verticles[(i + j * width) * 4];
 
                 // on définit ses quatre coins
                 quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);
@@ -45,7 +47,7 @@ bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize, const int*
         return true;
 }
 
-virtual void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     // on applique la transformation
         states.transform *= getTransform();
 
@@ -54,4 +56,6 @@ virtual void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) co
 
         // et on dessine enfin le tableau de vertex
         target.draw(m_vertices, states);
+}
+
 }

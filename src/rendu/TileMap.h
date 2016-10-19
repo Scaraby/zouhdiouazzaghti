@@ -2,27 +2,27 @@
 #ifndef RENDU__TILEMAP__H
 #define RENDU__TILEMAP__H
 
+#include "SFML/Graphics.hpp" 
 #include <string>
 
 namespace sf {
   class Drawable;
 }
 
-#include "sf/Drawable.h"
 
 namespace rendu {
 
   /// class TileMap - 
   class TileMap : public sf::Drawable {
     // Attributes
-  private:
+  protected:
     sf::VertexArray m_verticles;
     sf::Texture m_tileset;
     // Operations
   public:
     bool load (const std::string& tileset, sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height);
   private:
-    virtual void const draw (sf::RenderTarget& target, sf::RenderStates& states);
+    virtual void draw (sf::RenderTarget& target, sf::RenderStates& states) const;
   };
 
 };

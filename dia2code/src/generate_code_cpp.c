@@ -650,6 +650,7 @@ struct stdlib_includes {
    int array;   
    int thread;
    int mutex;
+   int graphics;
 };
 
 void print_include_stdlib(struct stdlib_includes* si,char* name) {
@@ -713,9 +714,10 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
            si->queue = 1;
        }
 
-       if (strstr(name,"sf::Drawable")){
- 	   print ("#include "SFML/Graphics.hpp");
-	}
+       if (!si->graphics && strstr(name,"sf::")) {
+ 	   print ("#include \"SFML/Graphics.hpp\" \n");
+	   si->graphics = 1; 
+       }
 
        if (!si->unordered_map && strstr(name,"std::unordered_map")) {
            print ("#include <unordered_map>\n");
@@ -837,14 +839,14 @@ gen_namespace(batch *b,declaration *nsd)
         print ("#include <p_orb.h>\n\n");
     if (includes) {
         namelist incfile = includes;
-        while (incfile != NULL) {
+        while (incfile != NULL && strcmp(incfile->package,"sf")!=0) {
             if (incfile->package) {
                 if (!strcmp(incfile->package,nsname)) {
                     if (strcmp(incfile->name,name)) {
                         print ("#include \"%s.%s\"\n", incfile->name, file_ext);
                     }
                 }
-                else {
+                else  {
                     print ("#include \"%s/%s.%s\"\n", incfile->package, incfile->name, file_ext);
                 }
             }
