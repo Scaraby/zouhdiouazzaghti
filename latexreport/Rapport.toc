@@ -6,5 +6,5 @@
 \contentsline {section}{\numberline {2.1}Description des \IeC {\'e}tats}{4}
 \contentsline {section}{\numberline {2.2}Conception logicielle}{5}
 \contentsline {section}{\numberline {2.3}Lien avec le rendu}{5}
-\contentsline {chapter}{\numberline {3}Strat\IeC {\'e}gie et conception de rendu}{6}
-\contentsline {section}{\numberline {3.1}Strat\IeC {\'e}gie de rendu}{6}
+\contentsline {chapter}{\numberline {3}Strat\IeC {\'e}gie et conception de rendu}{7}
+\contentsline {section}{\numberline {3.1}Strat\IeC {\'e}gie de rendu}{7}

@@ -100,18 +100,16 @@
 
     \chapter{Stratégie et conception de rendu}
     \section{Stratégie de rendu}
-    \begin{itemize}
+
 	Le premier objectif a été de pouvoir générer une map à partir d'une tileset. Il s'agit d'une image constitué d'unités élémentaires de texture (tuiles), qui serviront de base pour la map. Nous écrivons ensuite un code qui attribue à chaque tuile un identifiant entier, puis qui stocke dans un tableau le numéro de chaque tuile que l'on veut voir apparaître. La position de la tuile dans le tableau détermine sa position dans la future map. Voici un exemple de tileset :
 \includegraphics[width=0.20\textwidth]{TileSet.png}\par\vspace{1cm}
 Voici une map généré grâce à ce TileSet, obtenu en lançant le main : 
-\includegraphics[width=0.20\textwidth]{map.png}
+\includegraphics[width=1\textwidth]{map.png}
 
 	On crée une classe Tile dans un package "rendu" ; deux classes héritent de cette classe Tile, les classes StaticTile et AnimatedTile (exploitée plus tard). De la même manière que le code mentionné avant, la classe StaticTile stocke les coordonnées d'une tuile et la classe Tile stocke l'ensemble des tuiles pour un état donné. Il faudra donc associer à chaque instance d'élément une tuile, puis associer une liste d'élements et une "Grid" à un état, puis générer la map correspondant à cet état  (pour l'instant statiques).
 
 \par\leavevmode\
 
-
-.\end{itemize}
     
     
 \end{document}
