@@ -5,10 +5,12 @@
 
 namespace state {
   class Observable;
+  class Grid;
   class ElementList;
 }
 
 #include "Observable.h"
+#include "Grid.h"
 #include "ElementList.h"
 
 namespace state {

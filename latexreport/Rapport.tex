@@ -70,14 +70,12 @@
 \begin{itemize}
     
 
-    \item  \textbf{Les élements d'espace} (classe Space), élément immobiles permettant de définir les zones où les personnages peuvent se déplacer (\textit{e.g} herbe, sable, neige...). Ces élements peuvent être de type "CombatZone" si le personnage se trouve dans une zone d'influence ennemie, "NoCombatZone" s'il ne se trouve pas dans une telle zone, ou de type "ChangeMap": lorsque le personnage se trouve dans cet espace, il bascule dans une nouvelle map, différente de celle où il était.
-   \par\leavevmode\
-
-    \item  \textbf{Les élements de mur} (classe Wall), définissant les zones infranchissables où le personnage ne peut se déplacer. IL peut s'agir d'un obstacles (arbre) ou tout simplement d'un bord de la map. (\textit{e.g}  mur)
+    \item  \textbf{Les élements fixes} (classe StaticElement). Elle est composée de deux classes filles : d'une part, une classe "Static", correspondant aux éléments immobiles permettant de définir les zones où les personnages peuvent se déplacer (\textit{e.g} herbe, sable, neige...). Ces élements peuvent être de type "CombatZone" si le personnage se trouve dans une zone d'influence ennemie, "NoCombatZone" s'il ne se trouve pas dans une telle zone, ou de type "ChangeMap": lorsque le personnage se trouve dans cet espace, il bascule dans une nouvelle map, différente de celle où il était.
+   D'autre part, une classe "Wall", définissant les zones infranchissables où le personnage ne peut se déplacer. IL peut s'agir d'un obstacles (arbre) ou tout simplement d'un bord de la map. (\textit{e.g}  mur).
     
          
 \par\leavevmode\
-    \item \textbf{Les personnages} (classe Character), éléments mobiles se déplaçant sur la grille (ou plus exactement sur les cases définies par les classes Space). Ces éléments peuvent être contrôlés soit par l'humain (Personnage joueur), soit par les IA (Personnages non joueurs). Les personnages possèdent trois status possibles :
+    \item \textbf{Les personnages} (classe Character), éléments mobiles se déplaçant sur la grille (ou plus exactement sur les cases définies par les classes Space). Ces éléments peuvent être contrôlés soit par l'humain (Personnage joueur), soit par les IA (Personnages non joueurs). Ils possèdent tous une position définie par ses coordonnées X et Y, ainsi qu'une direction. Chaque personnage possède un certain nombre de données : niveau, expérience, force, points de vie etc .. Les personnages possèdent trois status possibles :
     \begin{itemize}
     
     \item YOURTURN : Le tour du personnage. Il aura le droit de dépenser des points de mouvements pour se déplacer sur la map, ou des points d'actions pour endommager les adversaires.
@@ -88,7 +86,8 @@
     
     \end{itemize}
     
-    	\section{Livrable, Jalon 1}
+    	\section{Conception logicielle}
+	Les classes "Character" et "Space" héritent toutes les deux d'une classe "Elements". La méthode de type \textit{bool} \textit{isStatic} permet de distinguer la classe d'élements statiques de celle des éléments mobiles en renvoyant \textit{true} si l'objet est de type "StaticElement", false sinon.
     
 	\section{Livrable, Jalon 1}
     

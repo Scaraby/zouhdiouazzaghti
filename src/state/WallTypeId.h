@@ -11,7 +11,8 @@ namespace state {
     BottomRight     = 3,
     BottomLeft     = 4,
     Horizontal     = 5,
-    Vertical     = 6
+    Vertical     = 6,
+    Obstacle     = 7
   };
 
 };
