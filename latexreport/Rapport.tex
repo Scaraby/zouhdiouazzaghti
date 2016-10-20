@@ -88,10 +88,11 @@
     
     	\section{Conception logicielle}
 	L'architecture du logiciel est composé des élements suivants :
+	    \begin{itemize}
 	\item une classe "Elements" : les classes "Character" et "Space" héritent toutes les deux d'une classe "Elements". La méthode de type \textit{bool} \textit{isStatic} permet de distinguer la classe d'élements statiques de celle des éléments mobiles en renvoyant \textit{true} si l'objet est de type "StaticElement", false sinon.
 	\item des conteneurs d'éléments : la classe "ElementLists" contient une liste d'éléments fixes et mobiles. La classe "Grid" hérite de la classe "ElementList" afin de disposer ces éléments sur une map, ou "grille". Le tout correspond à un état donné, qui est un objet de la classe "State".
 	\item une "Factory" ou fabrique d'éléments : il s'agit d'une interface permettant d'instancier une liste d'éléments sans avoir à spécifier la famille d'objets.
-    
+        \end{itemize}
 	\section{Lien avec le rendu}
 	Il se fait via la classe "StateObserver", qui suit le pattern design "Observer". Cette classe "observe" les changements d'états et en avertit le client via le rendu. A terme, il faudra rajouter une interface afin de distinguer les différents évènements (changement de map etc ..).    
 
@@ -103,7 +104,6 @@
 \item \textbf{Date}  : Mercredi 28 Septembre 2016
 
 \par\leavevmode\
-\item \textbf
 
 
 .\end{itemize}
