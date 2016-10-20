@@ -96,12 +96,17 @@
 	\section{Lien avec le rendu}
 	Il se fait via la classe "StateObserver", qui suit le pattern design "Observer". Cette classe "observe" les changements d'états et en avertit le client via le rendu. A terme, il faudra rajouter une interface afin de distinguer les différents évènements (changement de map etc ..).    
 
-\includegraphics[width=0.80\textwidth]{dia.png}
+\includegraphics[width=1\textwidth]{dia.png}
 
     \chapter{Stratégie et conception de rendu}
     \section{Stratégie de rendu}
     \begin{itemize}
-\item \textbf{Date}  : Mercredi 28 Septembre 2016
+	Le premier objectif a été de pouvoir générer une map à partir d'une tileset. Il s'agit d'une image constitué d'unités élémentaires de texture (tuiles), qui serviront de base pour la map. Nous écrivons ensuite un code qui attribue à chaque tuile un identifiant entier, puis qui stocke dans un tableau le numéro de chaque tuile que l'on veut voir apparaître. La position de la tuile dans le tableau détermine sa position dans la future map. Voici un exemple de tileset :
+\includegraphics[width=0.20\textwidth]{TileSet.png}\par\vspace{1cm}
+Voici une map généré grâce à ce TileSet, obtenu en lançant le main : 
+\includegraphics[width=0.20\textwidth]{map.png}
+
+
 
 \par\leavevmode\
 

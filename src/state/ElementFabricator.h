@@ -7,12 +7,10 @@ namespace state {
   class Element;
 }
 
-#include "Element.h"
-
 namespace state {
 
   /// class ElementFabricator - 
-  class ElementFabricator : public state::Element {
+  class ElementFabricator {
     // Operations
   public:
     virtual Element* generate ();

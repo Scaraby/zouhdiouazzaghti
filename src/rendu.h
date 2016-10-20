@@ -3,4 +3,6 @@
 #define __RENDU__H
 
 #include "rendu/Tile.h"
+#include "rendu/StaticTile.h"
+#include "rendu/AnimatedTile.h"
 #endif

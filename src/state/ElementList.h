@@ -7,8 +7,10 @@
 namespace state {
   class Element;
   class State;
+  class ElementFabricator;
 }
 
+#include "ElementFabricator.h"
 #include "Element.h"
 
 namespace state {
