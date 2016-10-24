@@ -11,10 +11,8 @@
 
 namespace rendu {
   
-    
-bool Tile::load(const std::string& tileset, sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height){
-    
-    if (!m_tileset.loadFromFile(tileset))
+bool Tile::load(const std::string& tileset, sf::Vector2u tileSize, std::vector<int>& tiles, unsigned int width, unsigned int height){
+       if (!m_tileset.loadFromFile(tileset))
             return false;
 
         // on redimensionne le tableau de vertex pour qu'il puisse contenir tout le niveau
@@ -51,7 +49,7 @@ bool Tile::load(const std::string& tileset, sf::Vector2u tileSize, const int* ti
         return true;
 }
 
- void Tile::draw(sf::RenderTarget& target, sf::RenderStates& states) const {
+ void Tile::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     // on applique la transformation
         states.transform *= getTransform();
 
@@ -62,5 +60,5 @@ bool Tile::load(const std::string& tileset, sf::Vector2u tileSize, const int* ti
         target.draw(m_verticles, states);
 }
 
- 
-}
+}    
+

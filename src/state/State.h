@@ -2,6 +2,7 @@
 #ifndef STATE__STATE__H
 #define STATE__STATE__H
 
+#include <vector>
 
 namespace state {
   class Observable;
@@ -18,11 +19,13 @@ namespace state {
   /// class State - 
   class State : public state::Observable {
     // Associations
+    // Attributes
+  public:
+    std::vector<int> level;
     // Operations
   public:
     State ();
-    int generateMap ();
-    run ();
+    ~State ();
   };
 
 };

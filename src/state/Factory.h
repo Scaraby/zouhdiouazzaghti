@@ -22,8 +22,8 @@ namespace state {
     std::map<std::string, std::unique_ptr<ElementFabricator>> registry;
     // Operations
   public:
-    virtual Element* generate (std::string key);
-    void register (std::string key);
+    virtual Element* generate (char key);
+    void registerType (char key);
   };
 
 };

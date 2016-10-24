@@ -3,34 +3,21 @@
 //coucou lotestl
 //Salut  Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 #include <SFML/Graphics.hpp>
-#include "Rendu.hpp"
-
+#include "state.h"
+#include "rendu.h"
+#include "rendu/Tile.h"
 
 using namespace std;
 
 int generateMap() {
-     TileMap map;
+    rendu::Tile map;
     sf::Texture texture;
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
-
-    // on définit le niveau à l'aide de numéro de tuiles
-     const int level[] =
-    {
-        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
-        10, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 10,
-        10, 3, 4, 9, 4, 4, 4, 4, 4, 4, 4, 4, 9, 4, 5, 10,
-        10, 3, 4, 4, 4, 9, 4, 4, 4, 4, 4, 4, 4, 4, 5, 10,
-        10, 3, 9, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 10,
-        10, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 9, 4, 4, 5, 10,
-        10, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 10,
-        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
-    };
-    
-     
-    
+    state::State etat;
+        
     // on crée la tilemap avec le niveau précédemment défini
     
-    if (!map.load("../Textures/PNG/TileSet.png", sf::Vector2u(64, 64), level, 16, 8))
+    if (!map.load("../Textures/PNG/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
         return -1;
 
     // on fait tourner la boucle principale
