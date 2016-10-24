@@ -17,7 +17,7 @@ int generateMap() {
         
     // on crée la tilemap avec le niveau précédemment défini
     
-    if (!map.load("../Textures/PNG/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
+    if (!map.load("Textures/PNG/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
         return -1;
 
     // on fait tourner la boucle principale

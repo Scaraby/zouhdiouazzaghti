@@ -12,7 +12,7 @@ State::State(){
 	 vector<char> array(array_size);
 	int position = 0; 
     level.resize(128);
-	ifstream fin("test.txt"); 
+	ifstream fin("src/test.txt"); 
   if(fin.is_open())
 	{
 
