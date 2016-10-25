@@ -59,6 +59,6 @@ bool Tile::load(const std::string& tileset, sf::Vector2u tileSize, std::vector<i
         // et on dessine enfin le tableau de vertex
         target.draw(m_verticles, states);
 }
-
+ 
 }    
 
