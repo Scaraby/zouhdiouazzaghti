@@ -12,6 +12,11 @@ using namespace std;
 int generateMap() {
     rendu::Tile map;
     sf::Texture texture;
+    sf::Sprite sprite;
+    texture.loadFromFile("Textures/personnage/sprite-43.png");
+    sprite.setTexture(texture);
+    
+    
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
     state::State etat;
         
@@ -33,7 +38,10 @@ int generateMap() {
 
         // on dessine le niveau
         window.clear();
+        
         window.draw(map);
+        window.draw(sprite);
+        sprite.setPosition(100,100);
         window.display();
     }
     return 0;
@@ -44,6 +52,6 @@ int main(int argc,char* argv[])
     generateMap();
     cout << "It works !" << endl;
     
-
+    
     return 0;
 }
