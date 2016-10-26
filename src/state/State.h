@@ -22,6 +22,8 @@ namespace state {
     // Attributes
   public:
     std::vector<int> level;
+  protected:
+    std::vector<unique_ptr<Element>> world;
     // Operations
   public:
     State ();
