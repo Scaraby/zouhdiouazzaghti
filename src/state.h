@@ -11,9 +11,9 @@
 #include "state/Space.h"
 #include "state/ElementFabricator.h"
 #include "state/Factory.h"
+#include "state/ElementList.h"
 #include "state/StateObserver.h"
 #include "state/Observable.h"
-#include "state/ElementList.h"
 #include "state/Grid.h"
 #include "state/State.h"
 #endif
