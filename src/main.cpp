@@ -13,6 +13,7 @@ int generateMap() {
     rendu::Tile map;
     sf::Texture texture;
     sf::Sprite sprite;
+    sprite.setPosition(100,100);
     texture.loadFromFile("Textures/personnage/sprite-43.png");
     sprite.setTexture(texture);
     
@@ -30,13 +31,48 @@ int generateMap() {
     {
         // on gère les évènements
         sf::Event event;
+        
         while (window.pollEvent(event))
         {
-            if(event.type == sf::Event::Closed)
-                window.close();
-            if(event.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-                sprite.move(1,0);
+            switch(event.type){
+                case sf::Event::Closed:
+                    window.close();
+                    break;
+                case sf::Event::KeyPressed:
+                    switch(event.key.code){
+                        case sf::Keyboard::Right:
+                            texture.loadFromFile("Textures/personnage/sprite-droite.png");
+                            sprite.setTexture(texture);
+                            sprite.move(0,0);
+                            sprite.move(3,0);
+                            break;
+                        case sf::Keyboard::Left:
+                            texture.loadFromFile("Textures/personnage/sprite-gauche.png");
+                            sprite.setTexture(texture);
+                            sprite.move(0,0);
+                            sprite.move(-3,0);
+                            break;
+                        case sf::Keyboard::Up:
+                            texture.loadFromFile("Textures/personnage/sprite1.png");
+                             sprite.setTexture(texture);
+                            sprite.move(0,0);
+                            sprite.move(0,-3);
+                            break;
+                        case sf::Keyboard::Down:
+                            texture.loadFromFile("Textures/personnage/sprite-43.png");
+                            sprite.setTexture(texture);
+                            sprite.move(0,0);
+                            sprite.move(0,3);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+                    
             
+            }      
         }
 
         // on dessine le niveau
@@ -44,7 +80,6 @@ int generateMap() {
         
         window.draw(map);
         window.draw(sprite);
-        sprite.setPosition(100,100);
         window.display();
     }
     return 0;

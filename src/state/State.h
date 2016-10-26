@@ -5,14 +5,14 @@
 #include <vector>
 
 namespace state {
-  class ElementList;
   class Observable;
   class Grid;
+  class ElementList;
 }
 
-#include "ElementList.h"
 #include "Observable.h"
 #include "Grid.h"
+#include "ElementList.h"
 
 namespace state {
 
@@ -22,8 +22,6 @@ namespace state {
     // Attributes
   public:
     std::vector<int> level;
-  protected:
-    ElementList list;
     // Operations
   public:
     State ();
