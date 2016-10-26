@@ -7,7 +7,7 @@ using namespace std;
 
 namespace state {
 State::State(){
-{      
+    {    
   int array_size = 128;
   vector<char> array(array_size);
   int position = 0; 
@@ -24,12 +24,12 @@ State::State(){
     
     cout << "Displaying Array..." << endl << endl;
     //this loop display all the charaters in array till \0 
-    for(int i = 0; i<array.size(); i++)
+    for(size_t i = 0; i<array.size(); i++)
 	{
 	cout << array[i] << endl;
 	}
 		
-    for(int i = 0; i<array.size(); i++)
+    for(size_t i = 0; i<array.size(); i++)
 	{
 	level[i]=array[i]-97 ;
 	}
@@ -44,7 +44,7 @@ State::State(){
 }
 	
   else cout << "File could not be opened." << endl;
-    }
+  }
 	
    
 }

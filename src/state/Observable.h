@@ -4,16 +4,9 @@
 
 
 namespace state {
-  class StateObserver;
-}
-
-#include "StateObserver.h"
-
-namespace state {
 
   /// class Observable - 
   class Observable {
-    // Associations
   };
 
 };
