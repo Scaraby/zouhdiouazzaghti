@@ -34,6 +34,9 @@ int generateMap() {
         {
             if(event.type == sf::Event::Closed)
                 window.close();
+            if(event.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+                sprite.move(1,0);
+            
         }
 
         // on dessine le niveau
