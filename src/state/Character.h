@@ -9,11 +9,13 @@ namespace state {
 }
 
 #include "Element.h"
+#include "Direction.h"
 
 namespace state {
 
   /// class Character - 
   class Character : public state::Element {
+    // Associations
     // Attributes
   protected:
     int speed;
