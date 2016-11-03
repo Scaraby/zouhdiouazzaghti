@@ -106,7 +106,7 @@
 Voici une map généré grâce à ce TileSet, obtenu en lançant le main : 
 \includegraphics[width=1\textwidth]{map.png}
 
-	On crée une classe Tile dans un package "rendu" ; deux classes héritent de cette classe Tile, les classes StaticTile et AnimatedTile (exploitée plus tard). De la même manière que le code mentionné avant, la classe StaticTile stocke les coordonnées d'une tuile et la classe Tile stocke l'ensemble des tuiles pour un état donné. Il faudra donc associer à chaque instance d'élément une tuile, puis associer une liste d'élements et une "Grid" à un état, puis générer la map correspondant à cet état  (pour l'instant statiques).
+	On crée une classe Tile dans un package "rendu" ; deux classes héritent de cette classe Tile, les classes Map et CharacterMap (exploitée plus tard). De la même manière que le code mentionné avant, la classe Map stocke les coordonnées d'une tuile et la classe Tile stocke l'ensemble des tuiles pour un état donné. Il faudra donc associer à chaque instance d'élément une tuile, puis associer une liste d'élements et une "Grid" à un état, puis générer la map correspondant à cet état  (pour l'instant statiques).
 
 \par\leavevmode\
 
@@ -115,6 +115,8 @@ Voici une map généré grâce à ce TileSet, obtenu en lançant le main :
     \section{Clock}
     Les Changements d'états se font au rythme d'une synchronisation avec la Clock (non-visible à l'oeil nu). Lors d'un mouvement (commandé par une touche du clavier), il y a changement d'état de la layer (à implanter) des personnages, et le personnage est alors déplacé vers la zone indiquée. S'il n'y a aucune autre modification à notifier, notamment au niveau de la layer "Map" (qui ne se modifie que dans le cas d'un changement de map), le reste des éléments sont rechargés via la commande clone().
     \section{Changements extérieur}
-	La commande generateMap charge la Layer map, initialement, à partir d'un fichier .txt. L'implantation des layers de jeu (points de vie), et des layers de personnage se feront sans doute de la même manière.
+	La commande generateMap charge la Layer map, initialement, à partir d'un fichier .txt. L'implantation des layers de jeu (points de vie), et des layers de personnage se feront sans doute de la même manière. Cette méthode charge également (pour l'instant) la texture de personnage, et gère le déplacement et l'animation en évitant les dépassements de map.
+
+\includegraphics[width=1\textwidth]{MapPerso.png}
     
 \end{document}

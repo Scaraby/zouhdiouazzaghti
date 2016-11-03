@@ -4,4 +4,5 @@
 
 #include "rendu/Tile.h"
 #include "rendu/Map.h"
+#include "rendu/characterMap.h"
 #endif
