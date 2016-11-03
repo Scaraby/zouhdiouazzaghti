@@ -10,7 +10,11 @@
 #include "state/Wall.h"
 #include "state/SpaceTypeId.h"
 #include "state/Space.h"
+#include "state/StateObserver.h"
+#include "state/Observable.h"
 #include "state/ElementList.h"
 #include "state/Grid.h"
 #include "state/State.h"
+#include "state/StateEventId.h"
+#include "state/StateEvent.h"
 #endif
