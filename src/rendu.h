@@ -3,4 +3,5 @@
 #define __RENDU__H
 
 #include "rendu/Tile.h"
+#include "rendu/Map.h"
 #endif

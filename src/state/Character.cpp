@@ -1,9 +1,15 @@
 #include "Character.h"
+#include <SFML/Graphics.hpp>
 
 namespace state{
 
  Character::Character(){
-    
+    /*sf::Vector2i anim(1,Down);
+    sf::Texture texture;
+    sf::Sprite sprite;
+    sprite.setPosition(100,100);
+    texture.loadFromFile("Textures/personnage/TilePerso.png");
+    sprite.setTexture(texture);*/
  }
 
  bool const Character::isCharacter(){
