@@ -50,9 +50,10 @@ int Map::generateMap(){
                         case sf::Keyboard::Right:
                             //texture.loadFromFile("Textures/personnage/sprite-droite.png");
                             //sprite.setTexture(texture);
-                            anim.y=Right;
+                            
                             sprite.move(0,0);
                             sprite.move(2,0);
+                            anim.y=Right;
                             
                             break;
                         case sf::Keyboard::Left:
@@ -87,14 +88,17 @@ int Map::generateMap(){
                     break;
          
             }
-            if (sprite.getPosition().x < 0)
-                sprite.setPosition(sf::Vector2f(0,sprite.getPosition().y));
+            if (sprite.getPosition().x < 52)
+                sprite.setPosition(sf::Vector2f(52,sprite.getPosition().y));
             
-            if (sprite.getPosition().y < 0)
-                sprite.setPosition(sf::Vector2f(sprite.getPosition().x,0));
+            if (sprite.getPosition().y < 47)
+                sprite.setPosition(sf::Vector2f(sprite.getPosition().x,47));
             
-            if (sprite.getPosition().x > 1024)
-                sprite.setPosition(sf::Vector2f(1024,sprite.getPosition().y));
+            if (sprite.getPosition().x > 903)
+                sprite.setPosition(sf::Vector2f(903,sprite.getPosition().y));
+            
+            if (sprite.getPosition().y > 356)
+                sprite.setPosition(sf::Vector2f(sprite.getPosition().x,356));
         }
 
         // on dessine le niveau
