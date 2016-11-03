@@ -1,2 +1,0 @@
-\select@language {french}
-\contentsline {chapter}{\numberline {1}Livrable, Jalon 1}{2}
