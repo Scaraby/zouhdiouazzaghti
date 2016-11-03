@@ -92,6 +92,9 @@ int Map::generateMap(){
             
             if (sprite.getPosition().y < 0)
                 sprite.setPosition(sf::Vector2f(sprite.getPosition().x,0));
+            
+            if (sprite.getPosition().x > 1024)
+                sprite.setPosition(sf::Vector2f(1024,sprite.getPosition().y));
         }
 
         // on dessine le niveau
