@@ -6,11 +6,17 @@
 
 namespace state {
   class Observable;
+};
+namespace rendu {
+  class Tile;
+};
+namespace state {
   class Grid;
   class ElementList;
 }
 
 #include "Observable.h"
+#include "rendu/Tile.h"
 #include "Grid.h"
 #include "ElementList.h"
 

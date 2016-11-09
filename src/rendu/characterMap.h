@@ -2,6 +2,7 @@
 #ifndef RENDU__CHARACTERMAP__H
 #define RENDU__CHARACTERMAP__H
 
+#include "SFML/Graphics.hpp" 
 
 namespace rendu {
   class Tile;
@@ -13,6 +14,9 @@ namespace rendu {
 
   /// class characterMap - 
   class characterMap : public rendu::Tile {
+    // Operations
+  public:
+    sf::Sprite generateCharacter (sf::Sprite& sprite);
   };
 
 };

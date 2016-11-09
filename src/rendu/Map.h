@@ -2,6 +2,7 @@
 #ifndef RENDU__MAP__H
 #define RENDU__MAP__H
 
+#include "SFML/Graphics.hpp" 
 
 namespace rendu {
   class Tile;
@@ -15,7 +16,7 @@ namespace rendu {
   class Map : public rendu::Tile {
     // Operations
   public:
-    int generateMap ();
+    int generateMap (sf::RenderWindow& window);
   };
 
 };

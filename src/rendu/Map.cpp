@@ -5,7 +5,9 @@
 using namespace state;
 using namespace rendu;
 
-int Map::generateMap(){
+
+
+int Map::generateMap(sf::RenderWindow& window){
     rendu::Tile map;
 
     sf::Vector2i anim(1,Down);
@@ -19,7 +21,7 @@ int Map::generateMap(){
     bool updateGame=false;
     
     
-    sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
+    
     state::State etat;
         
     // on crée la tilemap avec le niveau précédemment défini
@@ -83,10 +85,10 @@ int Map::generateMap(){
                         default:
                             break;
                     }
-                    break;
+                    
                 default:
                     break;
-         
+             
             }
             if (sprite.getPosition().x < 52)
                 sprite.setPosition(sf::Vector2f(52,sprite.getPosition().y));
@@ -115,7 +117,7 @@ int Map::generateMap(){
         window.clear();
         
         window.draw(map);
-        window.draw(sprite);
+       window.draw(sprite);
         window.display();
     }
     return 0;

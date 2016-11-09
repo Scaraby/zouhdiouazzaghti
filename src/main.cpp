@@ -15,8 +15,13 @@ using namespace rendu;
 
 int main(int argc,char* argv[]) 
 {   
+   
     Map *map = new Map();
-    map->generateMap();
+    characterMap *perso = new characterMap();
+    sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
+    sf::Sprite sprite;
+    map->generateMap(window);
+    perso->generateCharacter(sprite);
     cout << "It works !" << endl;
     
     
