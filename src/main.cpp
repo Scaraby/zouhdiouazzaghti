@@ -21,7 +21,7 @@ int main(int argc,char* argv[])
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
     sf::Sprite sprite;
     map->generateMap(window);
-    perso->generateCharacter(sprite);
+    //perso->generateCharacter(sprite);
     cout << "It works !" << endl;
     
     

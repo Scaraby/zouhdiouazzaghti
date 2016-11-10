@@ -32,7 +32,7 @@ namespace state {
     // Associations
     // Attributes
   public:
-    Element* Characters;
+    Element* characters;
     std::vector<int> level;
     // Operations
   public:
