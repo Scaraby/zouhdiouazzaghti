@@ -14,7 +14,7 @@ int Map::generateMap(sf::RenderWindow& window){
     sf::Texture texture;
     sf::Sprite sprite;
     sprite.setPosition(100,100);
-    texture.loadFromFile("src/TilePerso.png");
+    texture.loadFromFile("res/TilePerso.png");
     sprite.setTexture(texture);
     
     sf::Clock clock;
@@ -26,7 +26,7 @@ int Map::generateMap(sf::RenderWindow& window){
         
     // on crée la tilemap avec le niveau précédemment défini
     
-    if (!map.load("src/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
+    if (!map.load("res/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
         return -1;
 
     // on fait tourner la boucle principale
