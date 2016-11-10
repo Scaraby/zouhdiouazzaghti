@@ -9,7 +9,7 @@ namespace engine {
   class Engine {
     // Operations
   public:
-    void moveElement ( );
+    void moveElement ();
   };
 
 };
