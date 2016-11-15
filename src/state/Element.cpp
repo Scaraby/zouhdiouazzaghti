@@ -3,6 +3,7 @@
 namespace state{
  
     
+    
     bool const Element::isStatic (){
     }
     

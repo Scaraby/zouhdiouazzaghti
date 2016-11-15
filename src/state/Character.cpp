@@ -4,6 +4,9 @@
 namespace state{
 
  Character::Character(){
+     this->x=0;
+     this->y=0;
+     
     /*sf::Vector2i anim(1,Down);
     sf::Texture texture;
     sf::Sprite sprite;
