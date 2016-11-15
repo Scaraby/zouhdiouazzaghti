@@ -2,23 +2,18 @@
 #ifndef ENGINE__ENGINE__H
 #define ENGINE__ENGINE__H
 
-#include "SFML/Graphics.hpp" 
 
-namespace sf {
-  class Event;
+namespace state {
+  class State;
 }
-
 
 namespace engine {
 
   /// class Engine - 
-  class Engine : public sf::Event {
-    // Attributes
-  public:
-    sf::Event event;
+  class Engine {
     // Operations
   public:
-    void moveElement (sf::Event& event);
+    void moveElement (state::State& etat);
   };
 
 };

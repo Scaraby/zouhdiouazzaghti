@@ -5,7 +5,7 @@
 #include <vector>
 
 namespace state {
-  class Element;
+  class Character;
   class Observable;
 };
 namespace engine {
@@ -32,7 +32,7 @@ namespace state {
     // Associations
     // Attributes
   public:
-    Element* characters;
+    Character* characters;
     std::vector<int> level;
     // Operations
   public:
