@@ -37,15 +37,18 @@ int Map::generateMap(sf::RenderWindow& window){
         
         while (window.pollEvent(event))
         {
-            if (event.type != sf::Event::KeyPressed)
+            
+            
+            
+          /*  if (event.type != sf::Event::KeyPressed)
                 updateGame=false;
             else
-                updateGame=true;
+                updateGame=true;*/
             switch(event.type){
                 case sf::Event::Closed:
                     window.close();
                     break;
-                case sf::Event::KeyPressed:
+             /*   case sf::Event::KeyPressed:
                     updateGame=true;
                     switch(event.key.code){
                         
@@ -84,7 +87,7 @@ int Map::generateMap(sf::RenderWindow& window){
                             break;
                         default:
                             break;
-                    }
+                    }*/
                     
                 default:
                     break;
@@ -117,7 +120,7 @@ int Map::generateMap(sf::RenderWindow& window){
         window.clear();
         
         window.draw(map);
-       window.draw(sprite);
+      // window.draw(sprite);
         window.display();
     }
     return 0;
