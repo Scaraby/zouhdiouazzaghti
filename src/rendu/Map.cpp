@@ -55,10 +55,8 @@ int Map::generateMap(sf::RenderWindow& window){
                         case sf::Keyboard::Right:
                             //texture.loadFromFile("Textures/personnage/sprite-droite.png");
                             //sprite.setTexture(texture);
-                            
-                            sprite.move(0,0);
-                            sprite.move(2,0);
-                            anim.y=Right;
+              moveCharacter(Right);
+              
                             
                             break;
                         case sf::Keyboard::Left:

@@ -3,9 +3,7 @@
 #define ENGINE__ENGINE__H
 
 
-namespace state {
-  class State;
-}
+#include "state/Direction.h"
 
 namespace engine {
 
@@ -13,7 +11,7 @@ namespace engine {
   class Engine {
     // Operations
   public:
-    void moveElement (state::State& etat);
+    void moveElement (state::Direction dir);
   };
 
 };
