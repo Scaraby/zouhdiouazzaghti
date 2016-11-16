@@ -50,6 +50,9 @@ void State::setlevel(){
   else cout << "File could not be opened." << endl;
 }
 
+void State::setCharacter(Character* c){
+    this->characters = c;
+}
 
 State::~State(){
     
