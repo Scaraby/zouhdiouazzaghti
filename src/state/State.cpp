@@ -28,10 +28,7 @@ void State::setlevel(){
     
     cout << "Displaying Array..." << endl << endl;
     //this loop display all the charaters in array till \0 
-    for(size_t i = 0; i<array.size(); i++)
-	{
-	cout << array[i] << endl;
-	}
+ 
 		
     for(size_t i = 0; i<array.size(); i++)
 	{
@@ -40,10 +37,7 @@ void State::setlevel(){
 	
      cout << "Displaying Level..." << endl << endl;
     //this loop display all the charaters in array till \0 
-    for(int i = 0; i <array_size; i++)
-    {
-     cout << level[i] << endl;
-    }
+
 	
 }
 	

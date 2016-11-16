@@ -17,8 +17,8 @@ using namespace engine;
 
 int main(int argc,char* argv[]) 
 {   
-    Engine moteur;
-    Map *map = new Map();
+    Engine moteur ;
+    rendu::Tile map;
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
     sf::Sprite sprite;
     sf::Vector2i anim(1,Down);
@@ -35,10 +35,11 @@ int main(int argc,char* argv[])
     
     state::State etat;
     etat.setlevel();
+    cout << etat.characters->getY();
         
     // on crée la tilemap avec le niveau précédemment défini
     
-    if (!map->load("res/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
+    if (!map.load("res/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
         return -1;
 
     // on fait tourner la boucle principale
@@ -83,6 +84,8 @@ int main(int argc,char* argv[])
                             //texture.loadFromFile("Textures/personnage/sprite1.png");
                             // sprite.setTexture(texture);
                             anim.y=Up;
+                            moteur.moveElement(Up,etat.characters);
+                            cout << etat.characters->getY() << endl;
                             sprite.move(0,0);
                             sprite.move(0,-2);
                             
@@ -90,9 +93,11 @@ int main(int argc,char* argv[])
                         case sf::Keyboard::Down:
                             //texture.loadFromFile("Textures/personnage/sprite-43.png");
                             //sprite.setTexture(texture);
-                            moteur.moveElement(Down,etat.characters);
-                            cout << etat.characters->getX() << endl;
+                            
+                           // 
                             anim.y=Down;
+                            moteur.moveElement(Down,etat.characters);
+                            cout << etat.characters->getY() << endl;
                             sprite.move(0,0);
                             sprite.move(0,2);
                             
@@ -129,11 +134,13 @@ int main(int argc,char* argv[])
         
         
         sprite.setTextureRect(sf::IntRect(anim.x * 64, anim.y*64, 64, 64));
-       // window.clear();
+       window.clear();
         
-        //window.draw(map);
+        
+       
+         window.draw(map);
       // window.draw(sprite);
-       // window.display();
+        window.display();
     }
     
     

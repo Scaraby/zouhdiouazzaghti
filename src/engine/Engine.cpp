@@ -19,11 +19,12 @@ void Engine::moveElement(state::Direction dir, state::Character* character) {  /
            
             
         case Up:
-            character->setX(character->getY()+50);
+            character->setY(character->getY()-50);
             break;
             
         case Down:
-            character->setX(character->getY()+50);
+            character->setY(character->getY()+50);
+            break;
             
         default:
             break;
