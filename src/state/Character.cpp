@@ -7,8 +7,8 @@ using namespace std;
 namespace state{
 
  Character::Character(){
-     this->x=0;
-     this->y=0;
+     this->x=100;
+     this->y=100;
      
     /*sf::Vector2i anim(1,Down);
     sf::Texture texture;

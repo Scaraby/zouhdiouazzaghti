@@ -19,23 +19,22 @@ int main(int argc,char* argv[])
 {   
     Engine moteur ;
     rendu::Tile map;
+    state::State etat;
+    etat.setlevel();
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
     sf::Sprite sprite;
+    sprite.setPosition(etat.characters->getX(),etat.characters->getY());
     sf::Vector2i anim(1,Down);
     sf::Texture texture;
+    cout << etat.characters->getY() << endl ;
     
-    sprite.setPosition(100,100);
     texture.loadFromFile("res/TilePerso.png");
     sprite.setTexture(texture);
     
     sf::Clock clock;
     bool updateGame=false;
     
-    
-    
-    state::State etat;
-    etat.setlevel();
-    cout << etat.characters->getY();
+   // cout << etat.characters->getY();
         
     // on crée la tilemap avec le niveau précédemment défini
     
@@ -71,7 +70,7 @@ int main(int argc,char* argv[])
                             anim.y=Left;
                             moteur.moveElement(Right,etat.characters);
                             cout << etat.characters->getX() << endl;
-              
+                            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         case sf::Keyboard::Left:
@@ -81,7 +80,7 @@ int main(int argc,char* argv[])
                             moteur.moveElement(Left,etat.characters);
                             cout << etat.characters->getX() << endl;
                             sprite.move(0,0);
-                            sprite.move(-2,0);
+                            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         case sf::Keyboard::Up:
@@ -91,7 +90,7 @@ int main(int argc,char* argv[])
                             moteur.moveElement(Up,etat.characters);
                             cout << etat.characters->getY() << endl;
                             sprite.move(0,0);
-                            sprite.move(0,-2);
+                            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         case sf::Keyboard::Down:
@@ -103,7 +102,7 @@ int main(int argc,char* argv[])
                             moteur.moveElement(Down,etat.characters);
                             cout << etat.characters->getY() << endl;
                             sprite.move(0,0);
-                            sprite.move(0,2);
+                            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         default:
@@ -143,7 +142,7 @@ int main(int argc,char* argv[])
         
        
         window.draw(map);
-      // window.draw(sprite);
+        window.draw(sprite);
         window.display();
     }
     
