@@ -1,5 +1,8 @@
 #include "Character.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
+using namespace std;
 
 namespace state{
 
