@@ -37,6 +37,8 @@ namespace state {
     // Operations
   public:
     State ();
+    void setlevel ();
+    void setCharacter (Character* c);
     ~State ();
   };
 

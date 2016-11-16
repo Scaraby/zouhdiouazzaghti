@@ -8,8 +8,8 @@ namespace state {
   class Element;
 }
 
-#include "Element.h"
 #include "Direction.h"
+#include "Element.h"
 
 namespace state {
 
@@ -24,6 +24,7 @@ namespace state {
     int level;
     int hitpoints;
     std::string name;
+    Direction direction;
     // Operations
   public:
     Character ();

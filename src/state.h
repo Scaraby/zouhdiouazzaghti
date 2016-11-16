@@ -2,8 +2,8 @@
 #ifndef __STATE__H
 #define __STATE__H
 
-#include "state/Element.h"
 #include "state/Direction.h"
+#include "state/Element.h"
 #include "state/Character.h"
 #include "state/StaticElement.h"
 #include "state/WallTypeId.h"
