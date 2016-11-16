@@ -23,6 +23,7 @@ int Map::generateMap(sf::RenderWindow& window){
     
     
     state::State etat;
+    etat.setlevel();
         
     // on crée la tilemap avec le niveau précédemment défini
     

@@ -7,8 +7,12 @@ using namespace std;
 
 namespace state {
 State::State(){
-    {    
-  int array_size = 128;
+      
+  
+  }
+	
+void State::setlevel(){
+    int array_size = 128;
   vector<char> array(array_size);
   int position = 0; 
   level.resize(128);
@@ -44,10 +48,8 @@ State::State(){
 }
 	
   else cout << "File could not be opened." << endl;
-  }
-	
-   
 }
+
 
 State::~State(){
     
