@@ -2,7 +2,10 @@
 
 namespace state{
  
-    
+    Element::Element(){
+        this->x=0;
+        this->y=0;
+    }
     
     bool const Element::isStatic (){
     }

@@ -18,6 +18,7 @@ namespace state {
     int getY ();
     void setX (int x);
     void setY (int y);
+    Element ();
   };
 
 };

@@ -68,7 +68,9 @@ int main(int argc,char* argv[])
                         case sf::Keyboard::Right:
                             //texture.loadFromFile("Textures/personnage/sprite-droite.png");
                             //sprite.setTexture(texture);
-              
+                            anim.y=Left;
+                            moteur.moveElement(Right,etat.characters);
+                            cout << etat.characters->getX() << endl;
               
                             
                             break;
@@ -76,6 +78,8 @@ int main(int argc,char* argv[])
                             //texture.loadFromFile("Textures/personnage/sprite-gauche.png");
                            // sprite.setTexture(texture);
                             anim.y=Left;
+                            moteur.moveElement(Left,etat.characters);
+                            cout << etat.characters->getX() << endl;
                             sprite.move(0,0);
                             sprite.move(-2,0);
                             
@@ -138,7 +142,7 @@ int main(int argc,char* argv[])
         
         
        
-         window.draw(map);
+        window.draw(map);
       // window.draw(sprite);
         window.display();
     }
