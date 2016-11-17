@@ -65,7 +65,7 @@ int main(int argc,char* argv[])
                     window.close();
                     break;
                     
-                     
+                  // commandes pour les humains , à décommenter pour pouvoir utiliser le clavier   
                /* case sf::Event::KeyPressed:
                     updateGame=true;
                     switch(event.key.code){
@@ -112,12 +112,12 @@ int main(int argc,char* argv[])
                 default:
                     break;
             }
-        }
+        } 		
+					//IA 
                     
-                    dir = iaPerso.Execute();
-                    anim.y=dir;
-                    moteur.moveElement(dir,etat.characters);
-                     sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+					anim.y=iaPerso.Execute(moteur, etat);
+					
+                    sprite.setPosition(etat.characters->getX(),etat.characters->getY());
              
             
             if (sprite.getPosition().x < 52 ){

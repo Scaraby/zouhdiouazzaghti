@@ -8,10 +8,13 @@ using namespace ia;
 using namespace state;
 
 
-Direction IA::Execute (){
+Direction IA::Execute (Engine moteur, State etat){
     Direction dir;
     int x = rand() % 3;
     dir = (Direction)x;
+
+    moteur.moveElement(dir,etat.characters);
+
     return dir;
 
 }
