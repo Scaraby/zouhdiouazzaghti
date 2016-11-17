@@ -10,20 +10,20 @@ void Engine::moveElement(state::Direction dir, state::Character* character) {  /
     
     switch (dir){
         case Right:
-            character->setX(character->getX()+2);
+            character->setX(character->getX()+52);
             break;
             
         case Left :
-            character->setX(character->getX()-2);
+            character->setX(character->getX()-52);
             break;
            
             
         case Up:
-            character->setY(character->getY()-2);
+            character->setY(character->getY()-52);
             break;
             
         case Down:
-            character->setY(character->getY()+2);
+            character->setY(character->getY()+52);
             break;
             
         default:

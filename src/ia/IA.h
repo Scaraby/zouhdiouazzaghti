@@ -3,14 +3,7 @@
 #define IA__IA__H
 
 
-namespace state {
-  class Character;
-};
-namespace engine {
-  class Engine;
-}
-
-#include "engine/Engine.h"
+#include "state/Direction.h"
 
 namespace ia {
 
@@ -18,7 +11,7 @@ namespace ia {
   class IA {
     // Operations
   public:
-    void IAExecute (state::Character* c, engine::Engine e);
+    state::Direction Execute ();
   };
 
 };

@@ -7,11 +7,13 @@
 #include "rendu.h"
 #include "rendu/Tile.h"
 #include "engine.h"
+#include "ia.h"
 
 using namespace std;
 using namespace state;
 using namespace rendu;
 using namespace engine;
+using namespace ia;
 
 
 
@@ -21,6 +23,7 @@ int main(int argc,char* argv[])
     rendu::Tile map;
     state::State etat;
     Character c;
+    IA iaPerso;
     etat.setCharacter(&c);
     etat.setlevel();
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
@@ -29,6 +32,7 @@ int main(int argc,char* argv[])
     sf::Vector2i anim(1,Down);
     sf::Texture texture;
     cout << etat.characters->getY() << endl ;
+    Direction dir=Down;
     
     texture.loadFromFile("res/TilePerso.png");
     sprite.setTexture(texture);
@@ -107,13 +111,19 @@ int main(int argc,char* argv[])
                     
                 default:
                     break;
-                    bouge = rand() % 3;
-                    anim.y= bouge;
-                    moteur.moveElement(bouge,etat.characters);
-             
             }
-            if (sprite.getPosition().x < 52 )
-                sprite.setPosition(sf::Vector2f(52,sprite.getPosition().y));
+        }
+                    
+                    dir = iaPerso.Execute();
+                    anim.y=dir;
+                    moteur.moveElement(dir,etat.characters);
+                     sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+             
+            
+            if (sprite.getPosition().x < 52 ){
+                etat.characters->setX(52);
+                sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+            }
             
             if (sprite.getPosition().y < 47)
                 sprite.setPosition(sf::Vector2f(sprite.getPosition().x,47));
@@ -123,7 +133,7 @@ int main(int argc,char* argv[])
             
             if (sprite.getPosition().y > 356)
                 sprite.setPosition(sf::Vector2f(sprite.getPosition().x,356));
-        }
+        
 
         // on dessine le niveau
         if (updateGame)
