@@ -1,4 +1,6 @@
 #include "Element.h"
+#include "rendu/PositionObs.h"
+
 
 namespace state{
  
@@ -20,6 +22,8 @@ namespace state{
     
     void  Element::setX (int x){
         this->x=x;
+        for (auto a : obs) a->notifyPosX(x);
+        
     }
     
     void  Element::setY (int y){

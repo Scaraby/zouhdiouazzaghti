@@ -48,18 +48,21 @@ int main(int argc,char* argv[])
     {
         // on gère les évènements
         sf::Event event;
+        int bouge = 0;
         
         while (window.pollEvent(event))
         {
-            if (event.type != sf::Event::KeyPressed)
+          /*  if (event.type != sf::Event::KeyPressed)
                 updateGame=false;
             else
-                updateGame=true;
+                updateGame=true;*/
             switch(event.type){
                 case sf::Event::Closed:
                     window.close();
                     break;
-                case sf::Event::KeyPressed:
+                    
+                     
+               /* case sf::Event::KeyPressed:
                     updateGame=true;
                     switch(event.key.code){
                         
@@ -100,10 +103,13 @@ int main(int argc,char* argv[])
                             break;
                         default:
                             break;
-                    }
+                    }*/
                     
                 default:
                     break;
+                    bouge = rand() % 3;
+                    anim.y= bouge;
+                    moteur.moveElement(bouge,etat.characters);
              
             }
             if (sprite.getPosition().x < 52 )

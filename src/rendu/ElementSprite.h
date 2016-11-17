@@ -3,22 +3,19 @@
 #define RENDU__ELEMENTSPRITE__H
 
 
-namespace sf {
-  class Sprite;
-};
-namespace state {
+namespace rendu {
   class PositionObs;
 }
 
+#include "PositionObs.h"
 
 namespace rendu {
 
   /// class ElementSprite - 
-  class ElementSprite : public sf::Sprite, public state::PositionObs {
+  class ElementSprite : public rendu::PositionObs {
     // Operations
   public:
-    virtual void notifyPosX (int x);
-    virtual void notifyPosY (int y);
+    void notifyPositionX (int x);
   };
 
 };

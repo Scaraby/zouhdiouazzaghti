@@ -2,8 +2,9 @@
 #ifndef STATE__ELEMENT__H
 #define STATE__ELEMENT__H
 
+#include <vector>
 
-namespace state {
+namespace rendu {
   class PositionObs;
 }
 
@@ -15,6 +16,7 @@ namespace state {
   protected:
     int x;
     int y;
+    std::vector<rendu::PositionObs*> obs;
     // Operations
   public:
     bool const isStatic ();
@@ -23,7 +25,7 @@ namespace state {
     void setX (int x);
     void setY (int y);
     Element ();
-    void addPosObs (PositionObs* p);
+    void addPosObs (rendu::PositionObs* p);
   };
 
 };
