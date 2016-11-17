@@ -9,5 +9,8 @@
 \contentsline {chapter}{\numberline {3}Strat\IeC {\'e}gie et conception de rendu}{7}
 \contentsline {section}{\numberline {3.1}Strat\IeC {\'e}gie de rendu}{7}
 \contentsline {chapter}{\numberline {4}R\IeC {\`e}gles de Changements d'Etats}{9}
-\contentsline {section}{\numberline {4.1}Clock}{9}
+\contentsline {section}{\numberline {4.1}Moteur de rendu}{9}
 \contentsline {section}{\numberline {4.2}Changements ext\IeC {\'e}rieur}{9}
+\contentsline {chapter}{\numberline {5}Strat\IeC {\'e}gie d'intelligence artificielle}{11}
+\contentsline {section}{\numberline {5.1}Strat\IeC {\'e}gie de rendu}{11}
+\contentsline {subsection}{\numberline {5.1.1}Strat\IeC {\'e}gie d'IA simple : le zombie}{11}

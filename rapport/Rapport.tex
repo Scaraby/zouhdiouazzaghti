@@ -111,12 +111,24 @@ Voici une map généré grâce à ce TileSet, obtenu en lançant le main :
 \par\leavevmode\
 
         \chapter{Règles de Changements d'Etats}
-        (à cette heure, les modifications apportées ne permettent pas une implantation tel que décrite dans cette partie, du à un non-fonctionnement du Pattern Observer... La rectification sera apportée avec le prochain jalon)
-    \section{Clock}
-    Les Changements d'états se font au rythme d'une synchronisation avec la Clock (non-visible à l'oeil nu). Lors d'un mouvement (commandé par une touche du clavier), il y a changement d'état de la layer (à implanter) des personnages, et le personnage est alors déplacé vers la zone indiquée. S'il n'y a aucune autre modification à notifier, notamment au niveau de la layer "Map" (qui ne se modifie que dans le cas d'un changement de map), le reste des éléments sont rechargés via la commande clone().
-    \section{Changements extérieur}
-	La commande generateMap charge la Layer map, initialement, à partir d'un fichier .txt. L'implantation des layers de jeu (points de vie), et des layers de personnage se feront sans doute de la même manière. Cette méthode charge également (pour l'instant) la texture de personnage, et gère le déplacement et l'animation en évitant les dépassements de map.
+        
+    \section{Moteur de rendu}
+    Les Changements d'états se  avec le moteur de rendu. Lors d'un mouvement (commandé par une touche du clavier), il y a un ordre géré par le moteur (package Engine) qui met à jour l'état instancié, qui à son tour met à jour la position des personnages, et le personnage est alors déplacé vers la zone indiquée.
 
+
+    \section{Changements extérieur}
+	Le constructeur de State, contenue dans le package du même nom, lui permet d'initialiser l'attribut level de la classe, chargeant ainsi un niveau. Le second attribut de type Element* permet d'acceder directement à l'élement et par conséquent, à le modifier. Une amélioration permettra d'accéder à une liste d'élements, afin d'instancier et mettre à jour plusieurs sprites en même temps.
 \includegraphics[width=1\textwidth]{MapPerso.png}
+    \chapter{Stratégie d'intelligence artificielle}
     
+   \section{Stratégie de rendu}
+    Dans le cadre d'un jeu de rôle, les différents types personnages adversaires suivent chacun un comportement distinct, en fonction de leur "intelligence" au sein de l'univers. Aussi, un zombie aura le comportement prévisible d'errer sur la map jusqu'à croiser un personnage, et de l'attaquer jusqu'à ce que mort s'en suive. Un gobelin, sensé être frêle et sournois, aura tendance à adopter un comportement plus complexe en commençant d'abord par chercher les gobelins les plus proches, s'unir, et se déplacer au hasard en bande... Avant de lâchement battre en retraite s'il se retrouvent en situation de 1 contre 1. Enfin, un orque rodé au méthodes d'embuscades tentera de traquer le personnage en prenant le chemin le plus court menant à lui, mais en ayant pour priorité de joindre ses forces aux autres orques de la map avant d'attaquer le personnage.
+
+En terme d'implantation, toutes les IA sont capables de jouer le jeu et les différentes entités. Il sera même également possible d'implanter des personnages à des niveaux d'intelligence variés, l'entrée des méthodes de la classe IA comprenant un argument "State", donnant accès à la liste des personnages.
+   
+L'ajout d'un sleep pour une durée d'une seconde permet d'observer le comportement du personnage en détail.-
+   \subsection{Stratégie d'IA simple : le zombie}
+   L'intelligence artificielle des zombies est analogue à celle des canons fantastiques : peu intelligent, vagabondant de manière aléatoire jusqu'à croiser une proie. Le zombie ayant 4 possibilités de déplacement sur la map, il en choisit aléatoirement une des 4, jusqu'à croiser le héros. En terme de code, les directions sont choisies à l'aide d'un entier généré aléatoirement, exécutant la commande de déplacement pour chacune des directions aléatoires choisies. 
+   
+
 \end{document}
