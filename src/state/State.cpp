@@ -6,7 +6,7 @@
 using namespace std;
 
 namespace state {
-State::State(){
+State::State() : characters(NULL) {
       
   
   }

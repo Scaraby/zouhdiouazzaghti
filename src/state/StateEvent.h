@@ -5,16 +5,14 @@
 
 namespace state {
   class State;
-  class StateObserver;
 }
 
 #include "StateEventId.h"
-#include "StateObserver.h"
 
 namespace state {
 
   /// class StateEvent - 
-  class StateEvent : public state::StateObserver {
+  class StateEvent {
     // Associations
     state::StateEventId id;
     // Attributes

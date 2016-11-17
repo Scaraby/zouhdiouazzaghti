@@ -20,6 +20,8 @@ int main(int argc,char* argv[])
     Engine moteur ;
     rendu::Tile map;
     state::State etat;
+    Character c;
+    etat.setCharacter(&c);
     etat.setlevel();
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
     sf::Sprite sprite;
@@ -49,9 +51,6 @@ int main(int argc,char* argv[])
         
         while (window.pollEvent(event))
         {
-            
-            
-            
             if (event.type != sf::Event::KeyPressed)
                 updateGame=false;
             else
@@ -60,22 +59,20 @@ int main(int argc,char* argv[])
                 case sf::Event::Closed:
                     window.close();
                     break;
-                 case sf::Event::KeyPressed:
+                case sf::Event::KeyPressed:
                     updateGame=true;
                     switch(event.key.code){
                         
                         case sf::Keyboard::Right:
-                            //texture.loadFromFile("Textures/personnage/sprite-droite.png");
-                            //sprite.setTexture(texture);
-                            anim.y=Left;
+                           
+                            anim.y=Right;
                             moteur.moveElement(Right,etat.characters);
                             cout << etat.characters->getX() << endl;
                             sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         case sf::Keyboard::Left:
-                            //texture.loadFromFile("Textures/personnage/sprite-gauche.png");
-                           // sprite.setTexture(texture);
+                           
                             anim.y=Left;
                             moteur.moveElement(Left,etat.characters);
                             cout << etat.characters->getX() << endl;
@@ -84,8 +81,7 @@ int main(int argc,char* argv[])
                             
                             break;
                         case sf::Keyboard::Up:
-                            //texture.loadFromFile("Textures/personnage/sprite1.png");
-                            // sprite.setTexture(texture);
+                            
                             anim.y=Up;
                             moteur.moveElement(Up,etat.characters);
                             cout << etat.characters->getY() << endl;
@@ -94,10 +90,7 @@ int main(int argc,char* argv[])
                             
                             break;
                         case sf::Keyboard::Down:
-                            //texture.loadFromFile("Textures/personnage/sprite-43.png");
-                            //sprite.setTexture(texture);
                             
-                           // 
                             anim.y=Down;
                             moteur.moveElement(Down,etat.characters);
                             cout << etat.characters->getY() << endl;
@@ -113,7 +106,7 @@ int main(int argc,char* argv[])
                     break;
              
             }
-            if (sprite.getPosition().x < 52)
+            if (sprite.getPosition().x < 52 )
                 sprite.setPosition(sf::Vector2f(52,sprite.getPosition().y));
             
             if (sprite.getPosition().y < 47)
@@ -135,20 +128,14 @@ int main(int argc,char* argv[])
                 clock.restart();
             }
         
-        
         sprite.setTextureRect(sf::IntRect(anim.x * 64, anim.y*64, 64, 64));
-       window.clear();
-        
-        
-       
+        window.clear();
         window.draw(map);
         window.draw(sprite);
         window.display();
     }
-    
-    
+
     cout << "It works !" << endl;
-    
-    
+
     return 0;
 }

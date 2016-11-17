@@ -6,7 +6,6 @@
 
 namespace state {
   class Character;
-  class Observable;
 };
 namespace engine {
   class Engine;
@@ -19,7 +18,6 @@ namespace state {
   class ElementList;
 }
 
-#include "Observable.h"
 #include "engine/Engine.h"
 #include "rendu/Tile.h"
 #include "Grid.h"
@@ -28,7 +26,7 @@ namespace state {
 namespace state {
 
   /// class State - 
-  class State : public state::Observable {
+  class State {
     // Associations
     // Attributes
   public:

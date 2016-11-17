@@ -5,4 +5,5 @@
 #include "rendu/Tile.h"
 #include "rendu/Map.h"
 #include "rendu/characterMap.h"
+#include "rendu/ElementSprite.h"
 #endif

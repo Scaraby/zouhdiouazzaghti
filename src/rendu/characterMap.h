@@ -4,11 +4,13 @@
 
 #include "SFML/Graphics.hpp" 
 
+namespace sf {
+  class Sprite;
+};
 namespace rendu {
   class Tile;
 }
 
-#include "Tile.h"
 
 namespace rendu {
 

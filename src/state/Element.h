@@ -4,6 +4,10 @@
 
 
 namespace state {
+  class PositionObs;
+}
+
+namespace state {
 
   /// class Element - 
   class Element {
@@ -19,6 +23,7 @@ namespace state {
     void setX (int x);
     void setY (int y);
     Element ();
+    void addPosObs (PositionObs* p);
   };
 
 };

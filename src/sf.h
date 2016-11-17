@@ -4,5 +4,5 @@
 
 #include "sf/Transformable.h"
 #include "sf/Drawable.h"
-#include "sf/Event.h"
+#include "sf/Sprite.h"
 #endif
