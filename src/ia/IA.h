@@ -2,12 +2,14 @@
 #ifndef IA__IA__H
 #define IA__IA__H
 
+#include <vector>
 
 namespace engine {
   class Engine;
 };
 namespace state {
   class State;
+  class Character;
 }
 
 #include "state/Direction.h"
@@ -20,7 +22,8 @@ namespace ia {
   class IA {
     // Operations
   public:
-    state::Direction Execute (engine::Engine moteur, state::State etat);
+    state::Direction ExecuteDumb (engine::Engine moteur, state::State etat);
+    state::Direction ExecuteGroupAI (engine::Engine moteur, std::vector<state::Character*> group);
   };
 
 };
