@@ -10,7 +10,7 @@ using namespace state;
 
 Direction IA::Execute (Engine moteur, State etat){
     Direction dir;
-    int x = rand() % 3;
+    int x = rand() % 4;
     dir = (Direction)x;
 
     moteur.moveElement(dir,etat.characters);

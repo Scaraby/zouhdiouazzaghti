@@ -8,6 +8,7 @@
 #include "rendu/Tile.h"
 #include "engine.h"
 #include "ia.h"
+#include "unistd.h"
 
 using namespace std;
 using namespace state;
@@ -116,7 +117,7 @@ int main(int argc,char* argv[])
 					//IA 
                     
 					anim.y=iaPerso.Execute(moteur, etat);
-					
+					sleep(1);
                     sprite.setPosition(etat.characters->getX(),etat.characters->getY());
              
             
