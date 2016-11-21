@@ -4,18 +4,21 @@
 
 
 namespace rendu {
+  class Pont;
   class PositionObs;
 }
 
+#include "Pont.h"
 #include "PositionObs.h"
 
 namespace rendu {
 
   /// class ElementSprite - 
-  class ElementSprite : public rendu::PositionObs {
+  class ElementSprite : public rendu::Pont, public rendu::PositionObs {
     // Operations
   public:
-    void notifyPositionX (int x);
+    void notifyPosX (int x);
+    void notifyPosY (int y);
   };
 
 };

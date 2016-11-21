@@ -22,6 +22,10 @@ namespace state {
     // Operations
   public:
     ElementList (State& state);
+    /// 	
+    /// @param e		(???) 
+    void AddElement (Element* e);
+    void RemoveElement (Element* e);
   };
 
 };

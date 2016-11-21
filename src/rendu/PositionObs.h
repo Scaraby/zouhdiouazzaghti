@@ -10,7 +10,7 @@ namespace rendu {
     // Operations
   public:
     virtual void notifyPosX (int x) = 0;
-    virtual void notifyPosY (int y);
+    virtual void notifyPosY (int y) = 0;
   };
 
 };

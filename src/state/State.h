@@ -6,6 +6,7 @@
 
 namespace state {
   class Character;
+  class ElementList;
 };
 namespace engine {
   class Engine;
@@ -15,7 +16,6 @@ namespace rendu {
 };
 namespace state {
   class Grid;
-  class ElementList;
 }
 
 #include "engine/Engine.h"
@@ -30,12 +30,15 @@ namespace state {
     // Associations
     // Attributes
   public:
-    Character* characters;
     std::vector<int> level;
+    Character* characters;
+    ElementList* characterlist;
     // Operations
   public:
     State ();
     void setlevel ();
+    void addCharacter (Character* c);
+    void removeCharacter (Character* c);
     void setCharacter (Character* c);
     ~State ();
   };

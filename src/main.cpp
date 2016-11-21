@@ -26,9 +26,11 @@ int main(int argc,char* argv[])
     Character c;
     IA iaPerso;
     etat.setCharacter(&c);
+    ElementSprite sprite;
+    c.addPosObs(&sprite);
     etat.setlevel();
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
-    sf::Sprite sprite;
+    //sf::Sprite sprite;
     sprite.setPosition(etat.characters->getX(),etat.characters->getY());
     sf::Vector2i anim(1,Down);
     sf::Texture texture;
@@ -116,9 +118,9 @@ int main(int argc,char* argv[])
         } 		
 					//IA 
                     
-					anim.y=iaPerso.ExecuteDumb(moteur, etat);
-					sleep(1);
-                    sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+            anim.y=iaPerso.ExecuteDumb(moteur, etat);
+           // sleep(1);
+            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
              
             
             if (sprite.getPosition().x < 52 ){

@@ -6,5 +6,6 @@
 #include "rendu/Map.h"
 #include "rendu/characterMap.h"
 #include "rendu/PositionObs.h"
+#include "rendu/Pont.h"
 #include "rendu/ElementSprite.h"
 #endif

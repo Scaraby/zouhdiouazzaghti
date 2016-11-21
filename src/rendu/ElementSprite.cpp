@@ -1,10 +1,18 @@
 #include "ElementSprite.h"
 #include "SFML/Graphics.hpp"
 
-namespace rendu {
+using namespace rendu;
+using namespace sf;
     
-    void ElementSprite::notifyPositionX(int x) {
-       //this->setPosition(x, this->getPosition().y);
+    void ElementSprite::notifyPosX(int x) {
+       this->setPosition(x, this->getPosition().y);
+       
     }
+    
+    void ElementSprite::notifyPosY(int y){
+        this->setPosition(this->getPosition().x,y);
+    }
+    
+    
 
-}
+   

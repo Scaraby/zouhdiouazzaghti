@@ -2,7 +2,8 @@
 #include "rendu/PositionObs.h"
 
 
-namespace state{
+using namespace state;
+using namespace rendu;
  
     Element::Element(){
         this->x=100;
@@ -30,5 +31,7 @@ namespace state{
         this->y=y;
     }
     
+    void Element::addPosObs(rendu::PositionObs* p){
+        obs.push_back(p);
+    }
     
-}
