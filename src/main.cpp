@@ -30,21 +30,18 @@ int main(int argc,char* argv[])
     c.addPosObs(&sprite);
     etat.setlevel();
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
-    //sf::Sprite sprite;
     sprite.setPosition(etat.characters->getX(),etat.characters->getY());
     sf::Vector2i anim(1,Down);
     sf::Texture texture;
     cout << etat.characters->getY() << endl ;
-    Direction dir=Down;
+
     
     texture.loadFromFile("res/TilePerso.png");
     sprite.setTexture(texture);
     
     sf::Clock clock;
     bool updateGame=false;
-    
-   // cout << etat.characters->getY();
-        
+
     // on crée la tilemap avec le niveau précédemment défini
     
     if (!map.load("res/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
@@ -55,8 +52,7 @@ int main(int argc,char* argv[])
     {
         // on gère les évènements
         sf::Event event;
-        int bouge = 0;
-        
+               
         while (window.pollEvent(event))
         {
           /*  if (event.type != sf::Event::KeyPressed)
@@ -119,7 +115,7 @@ int main(int argc,char* argv[])
 					//IA 
                     
             anim.y=iaPerso.ExecuteDumb(moteur, etat);
-           // sleep(1);
+            sleep(1);
             sprite.setPosition(etat.characters->getX(),etat.characters->getY());
              
             

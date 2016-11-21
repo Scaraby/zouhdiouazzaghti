@@ -71,10 +71,7 @@ namespace state{
      this->name=name;
  }
  
- void Character::attack(){
-     
- }
- 
+
  Character::~Character(){
      
  }
