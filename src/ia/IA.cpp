@@ -15,7 +15,6 @@ Direction IA::ExecuteDumb (Engine moteur, State etat, Character* c){
     dir = (Direction)x;
 
     moteur.moveElement(dir,c);
-    sleep(1);
 
     return dir;
 

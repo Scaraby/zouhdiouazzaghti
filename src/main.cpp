@@ -26,9 +26,7 @@ int main(int argc,char* argv[])
     Character *c = new Character(); 
     Character *d = new Character();
     IA iaPerso;
-    //std::vector<Element*> liste;
-    //etat.setCharacter(&c);
-    
+
     etat.characterlist.push_back(c);
     etat.characterlist.push_back(d);
     
@@ -43,9 +41,7 @@ int main(int argc,char* argv[])
     sf::Vector2i anim2(1,Down);
     sf::Texture texture;
     sf::Texture texture2;
-    //cout << etat.characters->getY() << endl ;
-
-    
+ 
     texture.loadFromFile("res/TilePerso.png");
     texture2.loadFromFile("res/TileHero.png");
     
@@ -86,37 +82,25 @@ int main(int argc,char* argv[])
                            
                             anim2.y=Right;
                             moteur.moveElement(Right,d);
-                            //cout << etat.characters->getX() << endl;
-                            //sprite.setPosition(etat.characters->getX(),etat.characters->getY());
-                            
                             break;
+                            
                         case sf::Keyboard::Left:
                            
                             anim2.y=Left;
                             moteur.moveElement(Left,d);
-                            //cout << etat.characters->getX() << endl;
-                            //sprite.move(0,0);
-                           // sprite.setPosition(etat.characters->getX(),etat.characters->getY());
-                            
                             break;
+                            
                         case sf::Keyboard::Up:
                             
                             anim2.y=Up;
                             moteur.moveElement(Up,d);
-                           // cout << etat.characters->getY() << endl;
-                            //sprite.move(0,0);
-                            //sprite.setPosition(etat.characters->getX(),etat.characters->getY());
-                            
                             break;
                         case sf::Keyboard::Down:
                             
                             anim2.y=Down;
                             moteur.moveElement(Down,d);
-                          //  cout << etat.characters->getY() << endl;
-                           // sprite.move(0,0);
-                           // sprite.setPosition(etat.characters->getX(),etat.characters->getY());
-                            
                             break;
+                            
                         default:
                             break;
                     }
@@ -125,12 +109,14 @@ int main(int argc,char* argv[])
                     break;
             }
         } 		
-					//IA 
+				
+	//IA 
                     
             anim.y=iaPerso.ExecuteDumb(moteur, etat, c);
             //sleep(1);
-            //sprite.setPosition(c->getX(),c->getY());
-             
+
+            
+        //Gestion sorties de map    
             for (auto a : etat.characterlist){
                 if (a->getX() < 52){
                     a->setX(52);
@@ -148,17 +134,16 @@ int main(int argc,char* argv[])
                     a->setY(300);
                 }
             }
-
-
+            
         // on dessine le niveau
-      /*  if (updateGame)
+        if (updateGame)
             if (clock.getElapsedTime().asMilliseconds() > 50){
                 anim.x--;
                 if (anim.x*64 >= texture.getSize().x)
                     anim.x=2;
                 
                 clock.restart();
-            }*/
+            }
         
         sprite.setTextureRect(sf::IntRect(anim.x * 64, anim.y*64, 64, 64));
         sprite2.setTextureRect(sf::IntRect(anim2.x * 64, anim2.y*64, 64, 64));
