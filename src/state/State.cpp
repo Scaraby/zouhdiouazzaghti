@@ -45,7 +45,7 @@ void State::setlevel(){
 }
     
     void State::setElementList (ElementList* list){
-        this->characterlist = list;
+       // this->characterlist = list;
     
 
     }

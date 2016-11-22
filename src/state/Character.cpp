@@ -6,16 +6,8 @@ using namespace std;
 
 namespace state{
 
- Character::Character(){
-     this->x=100;
-     this->y=100;
+ Character::Character() { 
      
-    /*sf::Vector2i anim(1,Down);
-    sf::Texture texture;
-    sf::Sprite sprite;
-    sprite.setPosition(100,100);
-    texture.loadFromFile("Textures/personnage/TilePerso.png");
-    sprite.setTexture(texture);*/
  }
 
  bool const Character::isCharacter(){

@@ -22,7 +22,7 @@ namespace ia {
   class IA {
     // Operations
   public:
-    state::Direction ExecuteDumb (engine::Engine moteur, state::State etat);
+    state::Direction ExecuteDumb (engine::Engine moteur, state::State etat, state::Character* c);
     state::Direction ExecuteGroupAI (engine::Engine moteur, std::vector<state::Character*> group);
   };
 

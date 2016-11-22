@@ -5,9 +5,7 @@
 using namespace state;
 using namespace rendu;
  
-    Element::Element(){
-        this->x=100;
-        this->y=100;
+    Element::Element() : x(100), y(100){
     }
     
     bool const Element::isStatic (){
@@ -29,9 +27,12 @@ using namespace rendu;
     
     void  Element::setY (int y){
         this->y=y;
+        for (auto a : obs) a->notifyPosY(y);
     }
     
     void Element::addPosObs(rendu::PositionObs* p){
         obs.push_back(p);
+        p->notifyPosX(getX());
+        p->notifyPosY(getY());
     }
     

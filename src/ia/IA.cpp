@@ -2,18 +2,20 @@
 #include "engine.h"
 #include <stdlib.h>
 #include "state.h"
+#include <unistd.h>
 
 using namespace engine;
 using namespace ia;
 using namespace state;
 using namespace std;
 
-Direction IA::ExecuteDumb (Engine moteur, State etat){
+Direction IA::ExecuteDumb (Engine moteur, State etat, Character* c){
     Direction dir;
     int x = rand() % 4;
     dir = (Direction)x;
 
-   // moteur.moveElement(dir,etat.characters);
+    moteur.moveElement(dir,c);
+    sleep(1);
 
     return dir;
 
