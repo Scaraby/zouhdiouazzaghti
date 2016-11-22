@@ -23,21 +23,32 @@ int main(int argc,char* argv[])
     Engine moteur ;
     rendu::Tile map;
     state::State etat;
-    Character c;
+    Character* c=NULL;
+    Character* d=NULL;
     IA iaPerso;
-    etat.setCharacter(&c);
-    ElementSprite sprite;
-    c.addPosObs(&sprite);
+    //etat.setCharacter(&c);
+    //etat.characterlist->AddElement(&c);
+    //etat.characterlist->AddElement(&d);
+    ElementSprite sprite, sprite2;
+    c->addPosObs(&sprite);
+    d->addPosObs(&sprite2);
+    
     etat.setlevel();
+    
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
-    sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+    sprite.setPosition(c->getX(),c->getY());
+    sprite.setPosition(d->getX(),d->getY());
     sf::Vector2i anim(1,Down);
     sf::Texture texture;
-    cout << etat.characters->getY() << endl ;
+    sf::Texture texture2;
+    //cout << etat.characters->getY() << endl ;
 
     
     texture.loadFromFile("res/TilePerso.png");
+    texture2.loadFromFile("res/TileHero.png");
+    
     sprite.setTexture(texture);
+    sprite2.setTexture(texture2);
     
     sf::Clock clock;
     bool updateGame=false;
@@ -65,48 +76,48 @@ int main(int argc,char* argv[])
                     break;
                     
                   // commandes pour les humains , à décommenter pour pouvoir utiliser le clavier   
-               /* case sf::Event::KeyPressed:
+               case sf::Event::KeyPressed:
                     updateGame=true;
                     switch(event.key.code){
                         
                         case sf::Keyboard::Right:
                            
                             anim.y=Right;
-                            moteur.moveElement(Right,etat.characters);
-                            cout << etat.characters->getX() << endl;
-                            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+                            moteur.moveElement(Right,d);
+                            //cout << etat.characters->getX() << endl;
+                            //sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         case sf::Keyboard::Left:
                            
                             anim.y=Left;
-                            moteur.moveElement(Left,etat.characters);
-                            cout << etat.characters->getX() << endl;
-                            sprite.move(0,0);
-                            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+                            moteur.moveElement(Left,d);
+                            //cout << etat.characters->getX() << endl;
+                            //sprite.move(0,0);
+                           // sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         case sf::Keyboard::Up:
                             
                             anim.y=Up;
-                            moteur.moveElement(Up,etat.characters);
-                            cout << etat.characters->getY() << endl;
-                            sprite.move(0,0);
-                            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+                            moteur.moveElement(Up,d);
+                           // cout << etat.characters->getY() << endl;
+                            //sprite.move(0,0);
+                            //sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         case sf::Keyboard::Down:
                             
                             anim.y=Down;
-                            moteur.moveElement(Down,etat.characters);
-                            cout << etat.characters->getY() << endl;
-                            sprite.move(0,0);
-                            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+                            moteur.moveElement(Down,d);
+                          //  cout << etat.characters->getY() << endl;
+                           // sprite.move(0,0);
+                           // sprite.setPosition(etat.characters->getX(),etat.characters->getY());
                             
                             break;
                         default:
                             break;
-                    }*/
+                    }
                     
                 default:
                     break;
@@ -115,12 +126,12 @@ int main(int argc,char* argv[])
 					//IA 
                     
             anim.y=iaPerso.ExecuteDumb(moteur, etat);
-            sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+            sprite.setPosition(c->getX(),c->getY());
              
             
             if (sprite.getPosition().x < 52 ){
-                etat.characters->setX(52);
-                sprite.setPosition(etat.characters->getX(),etat.characters->getY());
+                //etat.characters->setX(52);
+                sprite.setPosition(d->getX(),d->getY());
             }
             
             if (sprite.getPosition().y < 47)
@@ -146,6 +157,7 @@ int main(int argc,char* argv[])
         window.clear();
         window.draw(map);
         window.draw(sprite);
+        window.draw(sprite2);
         window.display();
     }
 

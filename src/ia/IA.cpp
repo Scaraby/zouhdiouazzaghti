@@ -13,7 +13,7 @@ Direction IA::ExecuteDumb (Engine moteur, State etat){
     int x = rand() % 4;
     dir = (Direction)x;
 
-    moteur.moveElement(dir,etat.characters);
+   // moteur.moveElement(dir,etat.characters);
 
     return dir;
 
