@@ -6,7 +6,6 @@
 
 namespace state {
   class Element;
-  class State;
 }
 
 #include "Element.h"
@@ -21,11 +20,12 @@ namespace state {
     std::vector<Element*> elements;
     // Operations
   public:
-    ElementList (State& state);
+    ElementList (std::vector<Element*>  list);
     /// 	
     /// @param e		(???) 
     void AddElement (Element* e);
     void RemoveElement (Element* e);
+    void clearlist ();
   };
 
 };

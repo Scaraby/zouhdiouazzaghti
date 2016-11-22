@@ -41,6 +41,7 @@ namespace state {
     void removeCharacter (Character* c);
     void setCharacter (Character* c);
     ~State ();
+    void setElementList (ElementList* list);
   };
 
 };

@@ -115,7 +115,6 @@ int main(int argc,char* argv[])
 					//IA 
                     
             anim.y=iaPerso.ExecuteDumb(moteur, etat);
-            sleep(1);
             sprite.setPosition(etat.characters->getX(),etat.characters->getY());
              
             
