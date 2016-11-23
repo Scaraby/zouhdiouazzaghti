@@ -6,7 +6,6 @@
 
 namespace state {
   class Character;
-  class Element;
   class ElementList;
 };
 namespace engine {
@@ -33,7 +32,7 @@ namespace state {
   public:
     std::vector<int> level;
     Character* characters;
-    std::vector<Element*> characterlist;
+    std::vector<Character*> characterlist;
     // Operations
   public:
     State ();

@@ -24,26 +24,24 @@ Direction IA::ExecuteGroupAI (Engine moteur, vector<Character*> group){
     Direction dir;
     int x = rand() % 4;
     dir = (Direction)x;
-   for (int i = 0; i < group.size(); i++) {  // Peut-être une segfault à la dernière itération, attention
-    	if ( group[i]->getY() < group[i+1]->getY() + 100)
-			{moteur.moveElement(Up, group[i]);}
-		else moteur.moveElement(dir,group[i]);
+    	if ( group[0]->getY() < group[1]->getY() + 75)
+			{moteur.moveElement(Down, group[0]);}
+		
 		
 
-		if ( group[i]->getY() < group[i+1]->getY() - 100)
-			{moteur.moveElement(Down, group[i]);}
-		else moteur.moveElement(dir,group[i]);
+		if ( group[0]->getY() > group[1]->getY() - 75)
+			{moteur.moveElement(Up, group[0]);}
+		
 		
 
-		if (group[i]->getY() < group[i+1]->getX() + 100)
-			{moteur.moveElement(Right, group[i]);}
-		else moteur.moveElement(dir,group[i]);
+		if (group[0]->getX() < group[1]->getX() + 50)
+			{moteur.moveElement(Right, group[0]);}
+		
 		
 
-		if (group[i]->getY() < group[i+1]->getX() - 100)
-			{moteur.moveElement(Left, group[i]);}
-		else moteur.moveElement(dir,group[i]);
-}
+		if (group[0]->getX() > group[1]->getX() - 50)
+			{moteur.moveElement(Left, group[0]);}
+		
     return dir;
 
 }

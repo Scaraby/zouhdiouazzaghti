@@ -112,8 +112,9 @@ int main(int argc,char* argv[])
 				
 	//IA 
                     
-            anim.y=iaPerso.ExecuteDumb(moteur, etat, c);
-            //sleep(1);
+            anim.y=iaPerso.ExecuteGroupAI(moteur, etat.characterlist);
+
+
 
             
         //Gestion sorties de map    
