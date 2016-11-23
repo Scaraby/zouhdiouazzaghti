@@ -17,6 +17,7 @@ namespace state {
     int x;
     int y;
     std::vector<rendu::PositionObs*> obs;
+    bool notifyMove;
     // Operations
   public:
     bool const isStatic ();

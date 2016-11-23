@@ -34,6 +34,9 @@ int main(int argc,char* argv[])
     c->addPosObs(&sprite);
     d->addPosObs(&sprite2);
     
+    c->setX(600);
+    c->setY(300);
+    
     etat.setlevel();
     
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
@@ -76,6 +79,7 @@ int main(int argc,char* argv[])
                   // commandes pour les humains , à décommenter pour pouvoir utiliser le clavier   
                case sf::Event::KeyPressed:
                     updateGame=true;
+                   
                     switch(event.key.code){
                         
                         case sf::Keyboard::Right:
@@ -113,8 +117,7 @@ int main(int argc,char* argv[])
 	//IA 
                     
             anim.y=iaPerso.ExecuteGroupAI(moteur, etat.characterlist);
-
-
+            
 
             
         //Gestion sorties de map    
