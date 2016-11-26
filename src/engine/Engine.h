@@ -16,6 +16,7 @@ namespace engine {
     // Operations
   public:
     void moveElement (state::Direction dir, state::Character* character);
+    void attack (state::Character* c, state::Character* d);
   };
 
 };

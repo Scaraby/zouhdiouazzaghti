@@ -37,6 +37,9 @@ int main(int argc,char* argv[])
     c->setX(600);
     c->setY(300);
     
+    c->setName("Armure");
+    d->setName("Krilin");
+    
     etat.setlevel();
     
     sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");

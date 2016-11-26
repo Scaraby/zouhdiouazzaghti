@@ -8,6 +8,9 @@ namespace state {
   class Character;
   class ElementList;
 };
+namespace ia {
+  class IA;
+};
 namespace engine {
   class Engine;
 };
@@ -18,6 +21,7 @@ namespace state {
   class Grid;
 }
 
+#include "ia/IA.h"
 #include "engine/Engine.h"
 #include "rendu/Tile.h"
 #include "Grid.h"
