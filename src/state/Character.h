@@ -48,7 +48,7 @@ namespace state {
     void setName (std::string name);
     void setTurn (bool turn);
     void incMovecount ();
-    void resetMovecount ();
+    void resetMovecount (int debug = 0);
     int getMovecount ();
     bool getTurn ();
     ~Character ();

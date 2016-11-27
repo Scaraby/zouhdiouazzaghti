@@ -25,6 +25,10 @@ int main(int argc,char* argv[])
     state::State etat;
     Character *c = new Character(); 
     Character *d = new Character();
+    c->resetMovecount();
+    d->resetMovecount();
+    d->setTurn(true);
+    c->setTurn(true);
     IA iaPerso;
 
     etat.characterlist.push_back(c);
@@ -79,7 +83,7 @@ int main(int argc,char* argv[])
                     window.close();
                     break;
                     
-                  // commandes pour les humains , à décommenter pour pouvoir utiliser le clavier   
+                 // commandes pour les humains , à décommenter pour pouvoir utiliser le clavier   
                case sf::Event::KeyPressed:
                     updateGame=true;
                    
@@ -117,8 +121,7 @@ int main(int argc,char* argv[])
             }
         } 		
 				
-	//IA 
-                    
+	//IA         
             anim.y=iaPerso.ExecuteGroupAI(moteur, etat.characterlist);
             
 

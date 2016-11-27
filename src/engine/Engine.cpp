@@ -35,7 +35,7 @@ else{  switch (dir){
             break;
             
         }
-        character->incMovecount();
+
     }
 }
 
@@ -46,17 +46,23 @@ else{  switch (dir){
 
     void Engine::changeturns (state::State& s){
         for (int i = 0; i<s.characterlist.size();i++){
+            cout<< s.characterlist[i]->getMovecount() << endl;
             
-            if (s.characterlist[i]->getMovecount() > 3 ){      // mettre ici les conditions de fin de tour
-               s.characterlist[i]->setTurn(false);
+            if (s.characterlist[i]->getMovecount() > 2 && (s.characterlist[i]->getTurn())){
+                
+               
+               
+               
                for(int k = 0; k<s.characterlist.size();k++){
-                if ((k != i) && !(s.characterlist[i]->getTurn()) ){
+                   
+                if ((k != i) && !(s.characterlist[i]->getTurn()) && !(s.characterlist[k]->getTurn()) ){
                     s.characterlist[i]->resetMovecount();
-                    s.characterlist[i]->setTurn(true);
-      
+                    s.characterlist[k]->setTurn(true);
+                   
                     }
             
                 }
+               s.characterlist[i]->setTurn(false);
             }                     
         }           
     }         

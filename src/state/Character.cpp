@@ -71,8 +71,8 @@ namespace state{
      
  }
  
- void Character::resetMovecount (){
-     this->movecount = 0;
+ void Character::resetMovecount (int debug){
+     this->movecount = debug;
  }
  
 int Character::getMovecount (){

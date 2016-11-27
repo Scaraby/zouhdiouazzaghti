@@ -22,16 +22,16 @@ Direction IA::ExecuteDumb (Engine moteur, State etat, Character* c){
 
 Direction IA::ExecuteGroupAI (Engine moteur, vector<Character*> group){
     Direction dir;
-    
+    Direction dir1;
+    int x = rand() % 4;
+    dir1 = (Direction)x;
    
    
     if ( group[0]->getY() < group[1]->getY() - 75)
         {
         dir=Down;    
         moteur.moveElement(Down, group[0]);
-        sleep(1);
        
-                   //     moteur.moveElement(dir, group[1]);
         }
              
 		
@@ -40,9 +40,7 @@ Direction IA::ExecuteGroupAI (Engine moteur, vector<Character*> group){
 	{
         dir=Up;
         moteur.moveElement(Up, group[0]);
-        sleep(1);
        
-                     //   moteur.moveElement(dir, group[1]);
         }
 		
 		
@@ -51,9 +49,7 @@ Direction IA::ExecuteGroupAI (Engine moteur, vector<Character*> group){
 	{
         dir=Right;
         moteur.moveElement(Right, group[0]);
-        sleep(1);
         
-                  //      moteur.moveElement(dir, group[1]);
         }
 		
 		
@@ -61,11 +57,9 @@ Direction IA::ExecuteGroupAI (Engine moteur, vector<Character*> group){
 	{
         dir=Left;
         moteur.moveElement(Left, group[0]);
-        sleep(1);
        
-              //     moteur.moveElement(dir, group[1]);
         }
-    		
+    //moteur.moveElement(dir1, group[1])	;
     return dir;
 
 }
