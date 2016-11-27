@@ -63,7 +63,26 @@ namespace state{
      this->name=name;
  }
  
+ void Character::setTurn(bool turn){
+     this->turn=turn;
+ }
+ void Character::incMovecount (){
+     this->movecount +=1;
+     
+ }
+ 
+ void Character::resetMovecount (){
+     this->movecount = 0;
+ }
+ 
+int Character::getMovecount (){
+    return this->movecount;
 
+ }
+bool Character::getTurn (){
+    return this->turn;
+ }
+ 
  Character::~Character(){
      
  }

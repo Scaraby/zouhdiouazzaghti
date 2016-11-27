@@ -25,6 +25,8 @@ namespace state {
     int hitpoints;
     std::string name;
     Direction direction;
+    bool turn;
+    int movecount;
     // Operations
   public:
     Character ();
@@ -36,7 +38,6 @@ namespace state {
     void setXP (int xp);
     int getXP ();
     void attack ();
-    ~Character ();
     int getLevel ();
     int getHitPoints ();
     std::string getName ();
@@ -45,6 +46,12 @@ namespace state {
     void setLevel (int level);
     void setHitPoints (int hitpoints);
     void setName (std::string name);
+    void setTurn (bool turn);
+    void incMovecount ();
+    void resetMovecount ();
+    int getMovecount ();
+    bool getTurn ();
+    ~Character ();
   };
 
 };
