@@ -6,7 +6,7 @@ using namespace std;
 
 namespace state{
 
- Character::Character() : level(50) { 
+ Character::Character() : hitpoints(50) { 
      
  }
 

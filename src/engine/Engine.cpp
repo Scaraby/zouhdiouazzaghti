@@ -42,8 +42,13 @@ using namespace std;
 }
 
     void Engine::attack(state::Character* c, state::Character* d){
-        cout << c->getName() << "attaque " << d->getName() << endl ;
-        if (d.getLevel() > 0)  d->getLevel()--;
+ 
+        cout << c->getName() << " attaque " << d->getName() << endl ;
+        if (d->getHitPoints() > 0){
+            d->setHitPoints(d->getHitPoints()-1);
+        }
+        cout << "Points de vie :" << d->getHitPoints() << endl;
+        
     }
     
 

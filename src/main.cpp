@@ -112,6 +112,10 @@ int main(int argc,char* argv[])
                             moteur.moveElement(Down,d);
                             break;
                             
+                        case sf::Keyboard::Space:
+                            moteur.attack(d,c);
+                            break;
+                            
                         default:
                             break;
                     }
