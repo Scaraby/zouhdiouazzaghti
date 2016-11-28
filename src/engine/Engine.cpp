@@ -41,6 +41,7 @@ else{  switch (dir){
 
     void Engine::attack(state::Character* c, state::Character* d){
         cout << c->getName() << "attaque " << d->getName() << endl ;
+        d->getLevel()--;
     }
     
 
