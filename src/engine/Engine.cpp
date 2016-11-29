@@ -56,8 +56,18 @@ using namespace std;
     }
     
     void Engine::update(){
-        for (size_t i;i<waitingCommands.size();i++) activeCommands[i]=waitingCommands[i];
-        for (auto a : activeCommands) a-> run();
+        for (size_t i;i<waitingCommands.size();i++) {
+            activeCommands.push_back(waitingCommands[i]);
+        }
+        
+        waitingCommands.clear();
+        
+        for (auto a : activeCommands) {
+            a-> run();
+            delete a;
+        }
+        
+        activeCommands.clear();
     }
     
 

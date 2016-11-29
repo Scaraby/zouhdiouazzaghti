@@ -91,25 +91,41 @@ int main(int argc,char* argv[])
                         
                         case sf::Keyboard::Right:
                            
+                        { 
                             anim2.y=Right;
-                            moteur.moveElement(Right,d);
+                            MoveCommand *right = new MoveCommand(Right,d);
+                            moteur.addCommand(right);
+                        }
+                          //  moteur.moveElement(Right,d);
                             break;
                             
                         case sf::Keyboard::Left:
                            
+                        {
                             anim2.y=Left;
-                            moteur.moveElement(Left,d);
+                             MoveCommand *left = new MoveCommand(Left,d);
+                             moteur.addCommand(left);
+                        }
+                           // moteur.moveElement(Left,d);
                             break;
                             
                         case sf::Keyboard::Up:
                             
+                        {
                             anim2.y=Up;
-                            moteur.moveElement(Up,d);
+                             MoveCommand *up = new MoveCommand(Up,d);
+                             moteur.addCommand(up);
+                        }
+                          //  moteur.moveElement(Up,d);
                             break;
                         case sf::Keyboard::Down:
                             
+                        {
                             anim2.y=Down;
-                            moteur.moveElement(Down,d);
+                             MoveCommand *down = new MoveCommand(Down,d);
+                             moteur.addCommand(down);
+                        }
+                         //   moteur.moveElement(Down,d);
                             break;
                             
                         case sf::Keyboard::Space:
@@ -161,9 +177,11 @@ int main(int argc,char* argv[])
         
         sprite.setTextureRect(sf::IntRect(anim.x * 64, anim.y*64, 64, 64));
         sprite2.setTextureRect(sf::IntRect(anim2.x * 64, anim2.y*64, 64, 64));
-
+         moteur.update();
         window.clear();
+       
         window.draw(map);
+        
         if (c->getHitPoints()!=0) window.draw(sprite);
         window.draw(sprite2);
         window.display();
