@@ -9,7 +9,6 @@ namespace engine {
   class Command {
     // Operations
   public:
-    Command ();
     virtual void run () = 0;
   };
 

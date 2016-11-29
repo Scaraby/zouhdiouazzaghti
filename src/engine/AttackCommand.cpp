@@ -16,7 +16,7 @@ void AttackCommand::run(){
         cout << "Points de vie :" << victim->getHitPoints() << endl;
 }
 
-AttackCommand::AttackCommand(){
+AttackCommand::AttackCommand(state::Character* attacker, state::Character* victim){
     this->victim=victim;
     this->attacker=attacker;
 
