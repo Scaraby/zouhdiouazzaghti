@@ -17,10 +17,10 @@ using namespace rendu;
 using namespace engine;
 using namespace ia;
 std::mutex update_mutex;
-void engineupdate(Engine moteur)
-{
+void engineupdate(Engine &moteur)
+{   while(1){
       lock_guard<mutex> lock(update_mutex);
-     moteur.update();
+     moteur.update();}
 }
 
 int main(int argc,char* argv[]) 
@@ -70,7 +70,7 @@ int main(int argc,char* argv[])
     
     if (!map.load("res/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
         return -1;
-    thread t1(engineupdate, moteur);
+    thread t1(engineupdate, ref(moteur));
     // on fait tourner la boucle principale
     while (window.isOpen())
     {
@@ -195,6 +195,6 @@ int main(int argc,char* argv[])
     }
 
     cout << "It works !" << endl;
-
+    t1.join();
     return 0;
 }
