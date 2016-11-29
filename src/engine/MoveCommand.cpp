@@ -8,6 +8,8 @@ using namespace ia;
 using namespace state;
 using namespace std;
 
+
+
 void MoveCommand::run(){
     if (!(character->getTurn())) std::cout << "Wait for your turn" << endl;
 
@@ -37,4 +39,11 @@ void MoveCommand::run(){
          }
 
     }
+}
+
+MoveCommand::MoveCommand (state::Direction dir, state::Character* character){
+    
+    this->dir = dir;
+    this->character = character;
+    
 }
