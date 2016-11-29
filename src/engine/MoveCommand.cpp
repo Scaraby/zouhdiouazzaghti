@@ -47,3 +47,6 @@ MoveCommand::MoveCommand (state::Direction dir, state::Character* character){
     this->character = character;
     
 }
+
+
+MoveCommand::~MoveCommand(){} 

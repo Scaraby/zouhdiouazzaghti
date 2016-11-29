@@ -22,3 +22,5 @@ AttackCommand::AttackCommand(state::Character* attacker, state::Character* victi
 
 
 }
+
+AttackCommand::~AttackCommand(){} 

@@ -10,6 +10,7 @@ namespace engine {
     // Operations
   public:
     virtual void run () = 0;
+    virtual ~Command ();
   };
 
 };

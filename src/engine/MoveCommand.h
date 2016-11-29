@@ -25,6 +25,7 @@ namespace engine {
   public:
     void run ();
     MoveCommand (state::Direction dir, state::Character* character);
+    ~MoveCommand ();
   };
 
 };

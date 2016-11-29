@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <thread>
 //coucou lotestl
 //Salut  Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 #include <SFML/Graphics.hpp>
@@ -9,14 +9,19 @@
 #include "engine.h"
 #include "ia.h"
 #include "unistd.h"
+#include <mutex>
 
 using namespace std;
 using namespace state;
 using namespace rendu;
 using namespace engine;
 using namespace ia;
-
-
+std::mutex update_mutex;
+void engineupdate(Engine moteur)
+{
+      lock_guard<mutex> lock(update_mutex);
+     moteur.update();
+}
 
 int main(int argc,char* argv[]) 
 {   
@@ -65,7 +70,7 @@ int main(int argc,char* argv[])
     
     if (!map.load("res/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
         return -1;
-
+    thread t1(engineupdate, moteur);
     // on fait tourner la boucle principale
     while (window.isOpen())
     {
@@ -144,7 +149,7 @@ int main(int argc,char* argv[])
 				
 	//IA         
             anim.y=iaPerso.ExecuteGroupAI(moteur, etat.characterlist);
-            moteur.update();
+            
 
             
         //Gestion sorties de map    
@@ -166,6 +171,7 @@ int main(int argc,char* argv[])
                 }
             }
             
+            
         // on dessine le niveau
         if (updateGame)
             if (clock.getElapsedTime().asMilliseconds() > 50){
@@ -180,7 +186,7 @@ int main(int argc,char* argv[])
         sprite2.setTextureRect(sf::IntRect(anim2.x * 64, anim2.y*64, 64, 64));
          
         window.clear();
-       
+
         window.draw(map);
         
         if (c->getHitPoints()!=0) window.draw(sprite);

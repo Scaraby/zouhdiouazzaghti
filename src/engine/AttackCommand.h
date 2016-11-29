@@ -24,6 +24,7 @@ namespace engine {
   public:
     AttackCommand (state::Character* attacker, state::Character* victim);
     void run ();
+    ~AttackCommand ();
   };
 
 };
