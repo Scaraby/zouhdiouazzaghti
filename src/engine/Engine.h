@@ -2,23 +2,30 @@
 #ifndef ENGINE__ENGINE__H
 #define ENGINE__ENGINE__H
 
+#include <vector>
 
 namespace state {
   class Character;
-  class State;
 }
 
+#include "Command.h"
 #include "state/Direction.h"
 
 namespace engine {
 
   /// class Engine - 
   class Engine {
+    // Associations
+    // Attributes
+  public:
+    std::vector<Command> waitingCommands;
+    std::vector<Command> activeCommands;
     // Operations
   public:
     void moveElement (state::Direction dir, state::Character* character);
     void attack (state::Character* c, state::Character* d);
-    void changeturns (state::State& s);
+    void update ();
+    void addCommand (Command command);
   };
 
 };

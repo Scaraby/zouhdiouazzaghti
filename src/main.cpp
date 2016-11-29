@@ -164,7 +164,7 @@ int main(int argc,char* argv[])
 
         window.clear();
         window.draw(map);
-        window.draw(sprite);
+        if (c->getHitPoints()!=0) window.draw(sprite);
         window.draw(sprite2);
         window.display();
     }

@@ -52,7 +52,7 @@ using namespace std;
     }
     
 
-    void Engine::changeturns (state::State& s){
+   /* void Engine::changeturns (state::State& s){
         for (int i = 0; i<s.characterlist.size();i++){
             cout<< s.characterlist[i]->getMovecount() << endl;
             
@@ -73,4 +73,4 @@ using namespace std;
                s.characterlist[i]->setTurn(false);
             }                     
         }           
-    }         
+    }  */       
