@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <iostream>
 #include "AttackCommand.h"
 #include "state.h"
 #include "rendu.h"

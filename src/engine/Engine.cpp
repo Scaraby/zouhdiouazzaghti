@@ -51,6 +51,15 @@ using namespace std;
         
     }
     
+    void Engine::addCommand(Command* command){
+        waitingCommands.push_back(command);
+    }
+    
+    void Engine::update(){
+        for (size_t i;i<waitingCommands.size();i++) activeCommands[i]=waitingCommands[i];
+        for (auto a : activeCommands) a-> run();
+    }
+    
 
    /* void Engine::changeturns (state::State& s){
         for (int i = 0; i<s.characterlist.size();i++){
