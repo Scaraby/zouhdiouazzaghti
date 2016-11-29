@@ -69,6 +69,7 @@ int main(int argc,char* argv[])
     // on fait tourner la boucle principale
     while (window.isOpen())
     {
+        
         // on gère les évènements
         sf::Event event;
                
@@ -143,7 +144,7 @@ int main(int argc,char* argv[])
 				
 	//IA         
             anim.y=iaPerso.ExecuteGroupAI(moteur, etat.characterlist);
-            
+            moteur.update();
 
             
         //Gestion sorties de map    
@@ -177,7 +178,7 @@ int main(int argc,char* argv[])
         
         sprite.setTextureRect(sf::IntRect(anim.x * 64, anim.y*64, 64, 64));
         sprite2.setTextureRect(sf::IntRect(anim2.x * 64, anim2.y*64, 64, 64));
-         moteur.update();
+         
         window.clear();
        
         window.draw(map);
