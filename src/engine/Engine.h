@@ -4,12 +4,15 @@
 
 #include <vector>
 
+namespace engine {
+  class Command;
+};
 namespace state {
   class Character;
 }
 
-#include "Command.h"
 #include "state/Direction.h"
+#include "Command.h"
 
 namespace engine {
 
@@ -18,14 +21,14 @@ namespace engine {
     // Associations
     // Attributes
   public:
-    std::vector<Command> waitingCommands;
-    std::vector<Command> activeCommands;
+    std::vector<Command*> waitingCommands;
+    std::vector<Command*> activeCommands;
     // Operations
   public:
     void moveElement (state::Direction dir, state::Character* character);
     void attack (state::Character* c, state::Character* d);
     void update ();
-    void addCommand (Command command);
+    void addCommand (Command* command);
   };
 
 };

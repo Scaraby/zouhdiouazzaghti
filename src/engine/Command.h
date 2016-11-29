@@ -5,9 +5,12 @@
 
 namespace engine {
 
-  enum Command {
-    moveCommand     = 0,
-    attackCommand     = 1
+  /// class Command - 
+  class Command {
+    // Operations
+  public:
+    Command ();
+    virtual void run () = 0;
   };
 
 };
