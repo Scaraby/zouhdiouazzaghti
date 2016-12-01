@@ -1,5 +1,5 @@
 #include "PathFinding.h"
-
+#include <cmath>
 using namespace engine;
 using namespace ia;
 using namespace state;
