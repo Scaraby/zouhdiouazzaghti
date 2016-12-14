@@ -28,7 +28,8 @@ file(GLOB jsoncpp_sources "${PROJECT_SOURCE_DIR}/extern/jsoncpp-0.10.5/dist/json
 
 # Sources
 file(GLOB_RECURSE main_sources src/state/*.cpp src/engine/*.cpp src/ia/*.cpp)
-file(GLOB_RECURSE common_sources 
+file(GLOB_RECURSE common_sources src/rendu/*.cpp)
+file(GLOB_RECURSE server_sources src/server/*.cpp)
 
 
 # Executables
