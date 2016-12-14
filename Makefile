@@ -18,6 +18,7 @@ ${DIA2CODE_DIR}/bin/dia2code:
 	cd ${DIA2CODE_DIR} && ./build.sh
 
 configure:
+	./extern/configure
 	@mkdir -p build 
 	@cd build && cmake ..
 

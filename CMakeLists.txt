@@ -22,12 +22,18 @@ ENDIF(CMAKE_COMPILER_IS_GNUCC)
  set(DIA2CODE "${PROJECT_SOURCE_DIR}/dia2code/bin/dia2code")
  exec_program(${DIA2CODE} ARGS -d ../src -t cpp ../src/state.dia)
 
+# jsoncpp
+include_directories ("${PROJECT_SOURCE_DIR}/extern/jsoncpp-0.10.5/dist")
+file(GLOB jsoncpp_sources "${PROJECT_SOURCE_DIR}/extern/jsoncpp-0.10.5/dist/jsoncpp.cpp")
+
 # Sources
-file(GLOB_RECURSE main_sources src/*.cpp)
+file(GLOB_RECURSE main_sources src/state/*.cpp src/engine/*.cpp src/ia/*.cpp)
+file(GLOB_RECURSE common_sources 
 
 
 # Executables
-add_executable(run ${main_sources})
+add_executable(run ${main_sources} ${jsoncpp_sources})
+add_executable(server ${main_sources} ${jsoncpp_sources})
 
 # SFML
 if(WIN32)
