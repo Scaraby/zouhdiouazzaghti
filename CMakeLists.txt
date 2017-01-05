@@ -27,14 +27,14 @@ include_directories ("${PROJECT_SOURCE_DIR}/extern/jsoncpp-0.10.5/dist")
 file(GLOB jsoncpp_sources "${PROJECT_SOURCE_DIR}/extern/jsoncpp-0.10.5/dist/jsoncpp.cpp")
 
 # Sources
-file(GLOB_RECURSE main_sources src/state/*.cpp src/engine/*.cpp src/ia/*.cpp)
-file(GLOB_RECURSE common_sources src/rendu/*.cpp)
+file(GLOB_RECURSE main_sources src/state/*.cpp src/engine/*.cpp)
+file(GLOB_RECURSE common_sources src/rendu/*.cpp src/ia/*.cpp)
 file(GLOB_RECURSE server_sources src/server/*.cpp)
 
 
 # Executables
-add_executable(run ${main_sources} ${jsoncpp_sources})
-add_executable(server ${main_sources} ${jsoncpp_sources})
+add_executable(run ${main_sources} ${common_sources} ${jsoncpp_sources})
+add_executable(server ${main_sources} ${server_sources} ${jsoncpp_sources})
 
 # SFML
 if(WIN32)
