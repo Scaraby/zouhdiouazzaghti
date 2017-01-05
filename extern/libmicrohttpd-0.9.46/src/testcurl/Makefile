@@ -678,21 +678,21 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
 AS = as
-AUTOCONF = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing autoconf
-AUTOHEADER = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing autoheader
-AUTOMAKE = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing automake-1.15
-AWK = mawk
+AUTOCONF = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing autoconf
+AUTOHEADER = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing autoheader
+AUTOMAKE = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing automake-1.15
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2 -fno-strict-aliasing
 CPP = gcc -E
 CPPFLAGS = 
-CPU_COUNT = 1
+CPU_COUNT = 4
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -723,8 +723,8 @@ LDFLAGS =
 LIBCURL = 
 LIBCURL_CPPFLAGS = 
 LIBGCRYPT_CFLAGS = 
-LIBGCRYPT_CONFIG = no
-LIBGCRYPT_LIBS = 
+LIBGCRYPT_CONFIG = /usr/bin/libgcrypt-config
+LIBGCRYPT_LIBS = -lgcrypt
 LIBOBJS = 
 LIBS = 
 LIBSPDY_VERSION_AGE = 0
@@ -737,7 +737,7 @@ LIB_VERSION_REVISION = 0
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing makeinfo
+MAKEINFO = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing makeinfo
 MANIFEST_TOOL = :
 MHD_LIBDEPS =  
 MHD_LIBDEPS_PKGCFG =  
@@ -753,7 +753,7 @@ OBJDUMP = objdump
 OBJEXT = o
 OPENSSL_INCLUDES = 
 OPENSSL_LDFLAGS = 
-OPENSSL_LIBS = 
+OPENSSL_LIBS = -lssl -lcrypto
 OTOOL = 
 OTOOL64 = 
 PACKAGE = libmicrohttpd
@@ -778,17 +778,17 @@ RC =
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
-SPDY_LIBDEPS = 
+SPDY_LIBDEPS = -lssl -lcrypto
 SPDY_LIB_CFLAGS = -g -O2 -fno-strict-aliasing
 SPDY_LIB_CPPFLAGS =  
 SPDY_LIB_LDFLAGS =  
 STRIP = strip
 VERSION = 0.9.46
 _libcurl_config = 
-abs_builddir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/src/testcurl
-abs_srcdir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/src/testcurl
-abs_top_builddir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46
-abs_top_srcdir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46
+abs_builddir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/src/testcurl
+abs_srcdir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/src/testcurl
+abs_top_builddir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46
+abs_top_srcdir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -820,7 +820,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/install-sh
+install_sh = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -830,7 +830,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /home/reda/Projet3A/extern/libmicrohttpd
+prefix = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -925,14 +925,14 @@ test_digestauth_SOURCES = \
 
 test_digestauth_LDADD = \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-   
+  -lgcrypt 
 
 test_digestauth_with_arguments_SOURCES = \
   test_digestauth_with_arguments.c
 
 test_digestauth_with_arguments_LDADD = \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-   
+  -lgcrypt 
 
 test_get_sendfile_SOURCES = \
   test_get_sendfile.c
@@ -994,7 +994,7 @@ test_postform_SOURCES = \
 
 test_postform_LDADD = \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-   
+  -lgcrypt 
 
 test_post_loop_SOURCES = \
   test_post_loop.c
@@ -1043,7 +1043,7 @@ test_postform11_SOURCES = \
 
 test_postform11_LDADD = \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-   
+  -lgcrypt 
 
 test_post_loop11_SOURCES = \
   test_post_loop.c

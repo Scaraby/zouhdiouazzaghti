@@ -1,14 +1,19 @@
-#include "ServicesManager.h"
-#include "CommandService.h"
-#include "UserService.h"
-#include "HttpStatus.h"
+#include "ServicesManager.hpp"
+#include "VersionService.hpp"
+//#include "UserService.hpp"
 
 #include <iostream>
 #include <sstream>
-//#include <microhttpd.h>
+#include <microhttpd.h>
 #include <string.h>
-
+#include <memory>
 using namespace std;
+using namespace server;
+
+template<class T,typename ... Args>
+std::unique_ptr<T> make_unique(Args ... args) {
+    return std::unique_ptr<T>(new T(args ...));
+}
 
 class Request {
 public:
@@ -117,15 +122,11 @@ main_handler (void *cls,
     return ret;
 }
 
-int main(int argc, char *const *argv)
+int main(int argc,char* argv[]) 
 {
     try {
         ServicesManager servicesManager;
-//        servicesManager.registerService(make_unique<VersionService>());
-
-        UserDB userDB;
-        userDB.addUser(make_unique<User>("Paul",23));
-//        servicesManager.registerService(make_unique<UserService>(std::ref(userDB)));
+        servicesManager.registerService(make_unique<VersionService>());
 
         struct MHD_Daemon *d;
         if (argc != 2) {

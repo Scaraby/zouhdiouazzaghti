@@ -49,3 +49,6 @@ if(SFML_FOUND)
   target_link_libraries(run ${SFML_LIBRARIES})
 endif()
 
+# libmicrohttpd
+include_directories ("${PROJECT_SOURCE_DIR}/extern/libmicrohttpd/include")
+target_link_libraries(server "${PROJECT_SOURCE_DIR}/extern/libmicrohttpd/lib/libmicrohttpd.so")

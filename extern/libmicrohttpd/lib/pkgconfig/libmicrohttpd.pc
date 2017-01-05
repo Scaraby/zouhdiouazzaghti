@@ -1,4 +1,4 @@
-prefix=/home/reda/Projet3A/extern/libmicrohttpd
+prefix=/home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

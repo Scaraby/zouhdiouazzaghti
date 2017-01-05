@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/reda/Projet3A/extern/libmicrohttpd/lib'
+libdir='/home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd/lib'

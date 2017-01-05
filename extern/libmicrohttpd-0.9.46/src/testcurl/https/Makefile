@@ -548,21 +548,21 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
 AS = as
-AUTOCONF = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing autoconf
-AUTOHEADER = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing autoheader
-AUTOMAKE = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing automake-1.15
-AWK = mawk
+AUTOCONF = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing autoconf
+AUTOHEADER = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing autoheader
+AUTOMAKE = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing automake-1.15
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2 -fno-strict-aliasing
 CPP = gcc -E
 CPPFLAGS = 
-CPU_COUNT = 1
+CPU_COUNT = 4
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -593,8 +593,8 @@ LDFLAGS =
 LIBCURL = 
 LIBCURL_CPPFLAGS = 
 LIBGCRYPT_CFLAGS = 
-LIBGCRYPT_CONFIG = no
-LIBGCRYPT_LIBS = 
+LIBGCRYPT_CONFIG = /usr/bin/libgcrypt-config
+LIBGCRYPT_LIBS = -lgcrypt
 LIBOBJS = 
 LIBS = 
 LIBSPDY_VERSION_AGE = 0
@@ -607,7 +607,7 @@ LIB_VERSION_REVISION = 0
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing makeinfo
+MAKEINFO = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing makeinfo
 MANIFEST_TOOL = :
 MHD_LIBDEPS =  
 MHD_LIBDEPS_PKGCFG =  
@@ -623,7 +623,7 @@ OBJDUMP = objdump
 OBJEXT = o
 OPENSSL_INCLUDES = 
 OPENSSL_LDFLAGS = 
-OPENSSL_LIBS = 
+OPENSSL_LIBS = -lssl -lcrypto
 OTOOL = 
 OTOOL64 = 
 PACKAGE = libmicrohttpd
@@ -648,17 +648,17 @@ RC =
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
-SPDY_LIBDEPS = 
+SPDY_LIBDEPS = -lssl -lcrypto
 SPDY_LIB_CFLAGS = -g -O2 -fno-strict-aliasing
 SPDY_LIB_CPPFLAGS =  
 SPDY_LIB_LDFLAGS =  
 STRIP = strip
 VERSION = 0.9.46
 _libcurl_config = 
-abs_builddir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/src/testcurl/https
-abs_srcdir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/src/testcurl/https
-abs_top_builddir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46
-abs_top_srcdir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46
+abs_builddir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/src/testcurl/https
+abs_srcdir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/src/testcurl/https
+abs_top_builddir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46
+abs_top_srcdir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -690,7 +690,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/install-sh
+install_sh = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -700,7 +700,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /home/reda/Projet3A/extern/libmicrohttpd
+prefix = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -737,7 +737,7 @@ test_https_time_out_SOURCES = \
 test_https_time_out_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_tls_options_SOURCES = \
   test_tls_options.c \
@@ -746,7 +746,7 @@ test_tls_options_SOURCES = \
 test_tls_options_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_https_get_parallel_SOURCES = \
   test_https_get_parallel.c \
@@ -761,7 +761,7 @@ test_https_get_parallel_CFLAGS = \
 test_https_get_parallel_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(PTHREAD_LIBS) $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(PTHREAD_LIBS) $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_empty_response_SOURCES = \
   test_empty_response.c \
@@ -770,7 +770,7 @@ test_empty_response_SOURCES = \
 test_empty_response_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_https_get_parallel_threads_SOURCES = \
   test_https_get_parallel_threads.c \
@@ -785,7 +785,7 @@ test_https_get_parallel_threads_CFLAGS = \
 test_https_get_parallel_threads_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(PTHREAD_LIBS) $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(PTHREAD_LIBS) $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_tls_authentication_SOURCES = \
   test_tls_authentication.c \
@@ -794,7 +794,7 @@ test_tls_authentication_SOURCES = \
 test_tls_authentication_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_https_session_info_SOURCES = \
   test_https_session_info.c \
@@ -803,7 +803,7 @@ test_https_session_info_SOURCES = \
 test_https_session_info_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_https_multi_daemon_SOURCES = \
   test_https_multi_daemon.c \
@@ -812,7 +812,7 @@ test_https_multi_daemon_SOURCES = \
 test_https_multi_daemon_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_https_get_SOURCES = \
   test_https_get.c \
@@ -821,7 +821,7 @@ test_https_get_SOURCES = \
 test_https_get_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 #test_https_sni_SOURCES = \
 #  test_https_sni.c \
@@ -834,7 +834,7 @@ test_https_get_LDADD = \
 #test_https_sni_LDADD = \
 #  $(top_builddir)/src/testcurl/libcurl_version_check.a \
 #  $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-#  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+#  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 test_https_get_select_SOURCES = \
   test_https_get_select.c \
@@ -843,7 +843,7 @@ test_https_get_select_SOURCES = \
 test_https_get_select_LDADD = \
   $(top_builddir)/src/testcurl/libcurl_version_check.a \
   $(top_builddir)/src/microhttpd/libmicrohttpd.la \
-  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS)  
+  $(GNUTLS_LDFLAGS) $(GNUTLS_LIBS) -lgcrypt 
 
 all: all-recursive
 

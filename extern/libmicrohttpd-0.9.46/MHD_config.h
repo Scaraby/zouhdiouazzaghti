@@ -65,7 +65,7 @@
 #define HAVE_FSEEKO 1
 
 /* Define to 1 if you have the <gcrypt.h> header file. */
-/* #undef HAVE_GCRYPT_H */
+#define HAVE_GCRYPT_H 1
 
 /* Define to 1 if you have `gethrtime' function. */
 /* #undef HAVE_GETHRTIME */
@@ -128,25 +128,25 @@
 #define HAVE_NETINET_TCP_H 1
 
 /* Define to 1 if you have the <openssl/engine.h> header file. */
-/* #undef HAVE_OPENSSL_ENGINE_H */
+#define HAVE_OPENSSL_ENGINE_H 1
 
 /* Define to 1 if you have the <openssl/err.h> header file. */
-/* #undef HAVE_OPENSSL_ERR_H */
+#define HAVE_OPENSSL_ERR_H 1
 
 /* Define to 1 if you have the <openssl/evp.h> header file. */
-/* #undef HAVE_OPENSSL_EVP_H */
+#define HAVE_OPENSSL_EVP_H 1
 
 /* Define to 1 if you have the <openssl/pem.h> header file. */
-/* #undef HAVE_OPENSSL_PEM_H */
+#define HAVE_OPENSSL_PEM_H 1
 
 /* Define to 1 if you have the <openssl/rand.h> header file. */
-/* #undef HAVE_OPENSSL_RAND_H */
+#define HAVE_OPENSSL_RAND_H 1
 
 /* Define to 1 if you have the <openssl/rsa.h> header file. */
-/* #undef HAVE_OPENSSL_RSA_H */
+#define HAVE_OPENSSL_RSA_H 1
 
 /* Define to 1 if you have the <openssl/sha.h> header file. */
-/* #undef HAVE_OPENSSL_SHA_H */
+#define HAVE_OPENSSL_SHA_H 1
 
 /* Define to 1 if you have the `poll' function. */
 #define HAVE_POLL 1
@@ -391,7 +391,7 @@
 /* #undef SOMEBSD */
 
 /* disable libmicrospdy support */
-#define SPDY_SUPPORT 0
+#define SPDY_SUPPORT 1
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1

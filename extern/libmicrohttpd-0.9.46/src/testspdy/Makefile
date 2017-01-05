@@ -88,21 +88,21 @@ POST_UNINSTALL = :
 build_triplet = x86_64-pc-linux-gnu
 host_triplet = x86_64-pc-linux-gnu
 #am__append_1 = -fprofile-arcs -ftest-coverage
-##check_PROGRAMS = test_daemon_start_stop$(EXEEXT) \
-##	test_daemon_start_stop_many$(EXEEXT) \
-##	test_struct_namevalue$(EXEEXT) \
-##	$(am__EXEEXT_1) \
-##	$(am__EXEEXT_2)
-###am__append_2 = \
-###  test_new_connection  \
-###  test_request_response \
-###  test_notls \
-###  test_request_response_with_callback \
-###  test_misc \
-###  test_session_timeout
+check_PROGRAMS = test_daemon_start_stop$(EXEEXT) \
+	test_daemon_start_stop_many$(EXEEXT) \
+	test_struct_namevalue$(EXEEXT) \
+	$(am__EXEEXT_1) \
+	$(am__EXEEXT_2)
+#am__append_2 = \
+#  test_new_connection  \
+#  test_request_response \
+#  test_notls \
+#  test_request_response_with_callback \
+#  test_misc \
+#  test_session_timeout
 
-###am__append_3 = \
-###  test_proxies
+#am__append_3 = \
+#  test_proxies
 
 subdir = src/testspdy
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -127,13 +127,13 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/MHD_config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-###am__EXEEXT_1 = test_new_connection$(EXEEXT) \
-###	test_request_response$(EXEEXT) \
-###	test_notls$(EXEEXT) \
-###	test_request_response_with_callback$(EXEEXT) \
-###	test_misc$(EXEEXT) \
-###	test_session_timeout$(EXEEXT)
-###am__EXEEXT_2 = test_proxies$(EXEEXT)
+#am__EXEEXT_1 = test_new_connection$(EXEEXT) \
+#	test_request_response$(EXEEXT) \
+#	test_notls$(EXEEXT) \
+#	test_request_response_with_callback$(EXEEXT) \
+#	test_misc$(EXEEXT) \
+#	test_session_timeout$(EXEEXT)
+#am__EXEEXT_2 = test_proxies$(EXEEXT)
 am__objects_1 = common.$(OBJEXT)
 am_test_daemon_start_stop_OBJECTS = test_daemon_start_stop.$(OBJEXT) \
 	$(am__objects_1)
@@ -523,21 +523,21 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
 AS = as
-AUTOCONF = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing autoconf
-AUTOHEADER = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing autoheader
-AUTOMAKE = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing automake-1.15
-AWK = mawk
+AUTOCONF = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing autoconf
+AUTOHEADER = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing autoheader
+AUTOMAKE = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing automake-1.15
+AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
 CFLAGS = -g -O2 -fno-strict-aliasing
 CPP = gcc -E
 CPPFLAGS = 
-CPU_COUNT = 1
+CPU_COUNT = 4
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -568,8 +568,8 @@ LDFLAGS =
 LIBCURL = 
 LIBCURL_CPPFLAGS = 
 LIBGCRYPT_CFLAGS = 
-LIBGCRYPT_CONFIG = no
-LIBGCRYPT_LIBS = 
+LIBGCRYPT_CONFIG = /usr/bin/libgcrypt-config
+LIBGCRYPT_LIBS = -lgcrypt
 LIBOBJS = 
 LIBS = 
 LIBSPDY_VERSION_AGE = 0
@@ -582,7 +582,7 @@ LIB_VERSION_REVISION = 0
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/missing makeinfo
+MAKEINFO = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/missing makeinfo
 MANIFEST_TOOL = :
 MHD_LIBDEPS =  
 MHD_LIBDEPS_PKGCFG =  
@@ -598,7 +598,7 @@ OBJDUMP = objdump
 OBJEXT = o
 OPENSSL_INCLUDES = 
 OPENSSL_LDFLAGS = 
-OPENSSL_LIBS = 
+OPENSSL_LIBS = -lssl -lcrypto
 OTOOL = 
 OTOOL64 = 
 PACKAGE = libmicrohttpd
@@ -623,17 +623,17 @@ RC =
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
-SPDY_LIBDEPS = 
+SPDY_LIBDEPS = -lssl -lcrypto
 SPDY_LIB_CFLAGS = -g -O2 -fno-strict-aliasing
 SPDY_LIB_CPPFLAGS =  
 SPDY_LIB_LDFLAGS =  
 STRIP = strip
 VERSION = 0.9.46
 _libcurl_config = 
-abs_builddir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/src/testspdy
-abs_srcdir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/src/testspdy
-abs_top_builddir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46
-abs_top_srcdir = /home/reda/Projet3A/extern/libmicrohttpd-0.9.46
+abs_builddir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/src/testspdy
+abs_srcdir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/src/testspdy
+abs_top_builddir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46
+abs_top_srcdir = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -665,7 +665,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/reda/Projet3A/extern/libmicrohttpd-0.9.46/install-sh
+install_sh = ${SHELL} /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd-0.9.46/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -675,7 +675,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /home/reda/Projet3A/extern/libmicrohttpd
+prefix = /home/scaraby/Projet3A/zouhdiouazzaghti/extern/libmicrohttpd
 program_transform_name = s,x,x,
 psdir = ${docdir}
 runstatedir = ${localstatedir}/run
@@ -1408,7 +1408,7 @@ uninstall-am:
 
 .PRECIOUS: Makefile
 
-###  #test_requests_with_assets 
+#  #test_requests_with_assets 
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

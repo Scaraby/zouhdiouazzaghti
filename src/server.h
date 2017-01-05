@@ -8,4 +8,5 @@
 #include "server/CommandService.h"
 #include "server/ServiceException.h"
 #include "server/ServicesManager.h"
+#include "server/VersionService.h"
 #endif

@@ -11,7 +11,7 @@
 #include <json/json.h>
 #include <iostream>
 
-
+#include "ServiceException.hpp"
 #include "AbstractService.h"
 
 #endif
