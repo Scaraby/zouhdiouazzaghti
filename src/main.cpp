@@ -4,8 +4,8 @@
 //Salut  Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 #include <SFML/Graphics.hpp>
 #include "state.h"
-#include "rendu.h"
-//#include "rendu/Tile.h"
+#include "rendu/ElementSprite.h"
+#include "rendu/Tile.h"
 #include "engine.h"
 #include "ia.h"
 #include "unistd.h"

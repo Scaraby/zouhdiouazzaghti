@@ -23,13 +23,13 @@ ENDIF(CMAKE_COMPILER_IS_GNUCC)
  exec_program(${DIA2CODE} ARGS -d ../src -t cpp ../src/state.dia)
 
 # Sources
-file(GLOB_RECURSE client_sources src/render/*.cpp src/ia/*)
 file(GLOB_RECURSE main_sources src/state/*.cpp src/engine/*.cpp)
+file(GLOB_RECURSE client_sources src/rendu/*.cpp src/ia/*)
 file(GLOB_RECURSE server_sources src/server/*.cpp)
 
 
 # Executables
-add_executable(run src/main.cpp ${client_sources}  ${main_sources})
+add_executable(run src/main.cpp ${main_sources} ${client_sources})
 
 # SFML
 if(WIN32)
