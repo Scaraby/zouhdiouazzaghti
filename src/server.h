@@ -5,6 +5,7 @@
 #include "server/HttpStatus.h"
 #include "server/AbstractService.h"
 #include "server/UserService.h"
+#include "server/CommandService.h"
 #include "server/ServiceException.h"
 #include "server/ServicesManager.h"
 #endif

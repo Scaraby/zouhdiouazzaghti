@@ -651,6 +651,7 @@ struct stdlib_includes {
    int thread;
    int mutex;
    int graphics;
+   int json;
 };
 
 void print_include_stdlib(struct stdlib_includes* si,char* name) {
@@ -719,6 +720,11 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
 	   si->graphics = 1; 
        }
 
+	if (!si->json && strstr(name,"Json::")) {
+           print ("#include <json/json.h>\n");
+           si->json = 1;
+	}
+
        if (!si->unordered_map && strstr(name,"std::unordered_map")) {
            print ("#include <unordered_map>\n");
            si->unordered_map = 1;
@@ -726,6 +732,7 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
        if (!si->unordered_set && strstr(name,"std::unordered_set")) {
            print ("#include <unordered_set>\n");
            si->unordered_set = 1;
+
        }
        if (!si->memory 
        && (strstr(name,"std::unique_ptr")

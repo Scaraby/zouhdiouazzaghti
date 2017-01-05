@@ -2,6 +2,7 @@
 #ifndef SERVER__COMMANDSERVICE__H
 #define SERVER__COMMANDSERVICE__H
 
+#include <json/json.h>
 
 namespace server {
   class AbstractService;

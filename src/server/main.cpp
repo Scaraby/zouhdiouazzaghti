@@ -1,200 +1,154 @@
+#include "ServicesManager.h"
+#include "CommandService.h"
+#include "UserService.h"
+#include "HttpStatus.h"
+
 #include <iostream>
-#include <thread>
-//coucou lotestl
-//Salut  Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
-#include <SFML/Graphics.hpp>
-#include "state.h"
-#include "rendu.h"
-#include "rendu/Tile.h"
-#include "engine.h"
-#include "ia.h"
-#include "unistd.h"
-#include <mutex>
+#include <sstream>
+//#include <microhttpd.h>
+#include <string.h>
 
 using namespace std;
-using namespace state;
-using namespace rendu;
-using namespace engine;
-using namespace ia;
-std::mutex update_mutex;
-void engineupdate(Engine &moteur)
-{   while(1){
-      lock_guard<mutex> lock(update_mutex);
-     moteur.update();}
+
+class Request {
+public:
+    struct MHD_PostProcessor *pp = nullptr;
+    string data;
+    ~Request() {
+        if (pp) MHD_destroy_post_processor (pp);
+    }
+};
+
+// Fonction pour gérer les données imporantes en upload (non implanté ici)
+static int
+post_iterator(void *cls,
+        enum MHD_ValueKind kind,
+        const char *key,
+        const char *filename,
+        const char *content_type,
+        const char *transfer_encoding,
+        const char *data, uint64_t off, size_t size) 
+{
+    return MHD_NO;
 }
 
-int main(int argc,char* argv[]) 
-{   
-    Engine moteur ;
-    rendu::Tile map;
-    state::State etat;
-    Character *c = new Character(); 
-    Character *d = new Character();
-    c->resetMovecount();
-    d->resetMovecount();
-    d->setTurn(true);
-    c->setTurn(true);
-    IA iaPerso;
+// Détruit les données d'une requête
+static void
+request_completed (void *cls, struct MHD_Connection *connection,
+                   void **con_cls, enum MHD_RequestTerminationCode toe)
+{
+  Request *request = (Request*)*con_cls;
+  if (request) {
+      delete request;
+      *con_cls = nullptr;
+  }
+}
 
-    etat.characterlist.push_back(c);
-    etat.characterlist.push_back(d);
-    
-    ElementSprite sprite, sprite2;
-    c->addPosObs(&sprite);
-    d->addPosObs(&sprite2);
-    
-    c->setX(600);
-    c->setY(300);
-    
-    c->setName("Armure");
-    d->setName("Krilin");
-    
-    etat.setlevel();
-    
-    sf::RenderWindow window(sf::VideoMode(1024, 512), "Tilemap");
-    sf::Vector2i anim(1,Down);
-    sf::Vector2i anim2(1,Down);
-    sf::Texture texture;
-    sf::Texture texture2;
- 
-    texture.loadFromFile("res/TilePerso.png");
-    texture2.loadFromFile("res/TileHero.png");
-    
-    sprite.setTexture(texture);
-    sprite2.setTexture(texture2);
-    
-    sf::Clock clock;
-    bool updateGame=false;
+// Gestionnaire principal
+static int
+main_handler (void *cls,      
+          struct MHD_Connection *connection,
+          const char *url, // 
+          const char *method,
+          const char *version,
+          const char *upload_data, size_t *upload_data_size, void **ptr) 
+{
+    // Données pour une requête (en plusieurs appels à cette fonction)
+    Request *request = (Request*)*ptr;
 
-    // on crée la tilemap avec le niveau précédemment défini
-    
-    if (!map.load("res/TileSet.png", sf::Vector2u(64, 64), etat.level, 16, 8))
-        return -1;
-    thread t1(engineupdate, ref(moteur));
-    // on fait tourner la boucle principale
-    while (window.isOpen())
-    {
-        
-        // on gère les évènements
-        sf::Event event;
-               
-        while (window.pollEvent(event))
-        {
-            if (event.type != sf::Event::KeyPressed)
-                updateGame=false;
-            else
-                updateGame=true;
-            switch(event.type){
-                case sf::Event::Closed:
-                    window.close();
-                    break;
-                    
-                 // commandes pour les humains , à décommenter pour pouvoir utiliser le clavier   
-               case sf::Event::KeyPressed:
-                    updateGame=true;
-                   
-                    switch(event.key.code){
-                        
-                        case sf::Keyboard::Right:
-                           
-                        { 
-                            anim2.y=Right;
-                            MoveCommand *right = new MoveCommand(Right,d);
-                            moteur.addCommand(right);
-                        }
-                          //  moteur.moveElement(Right,d);
-                            break;
-                            
-                        case sf::Keyboard::Left:
-                           
-                        {
-                            anim2.y=Left;
-                             MoveCommand *left = new MoveCommand(Left,d);
-                             moteur.addCommand(left);
-                        }
-                           // moteur.moveElement(Left,d);
-                            break;
-                            
-                        case sf::Keyboard::Up:
-                            
-                        {
-                            anim2.y=Up;
-                             MoveCommand *up = new MoveCommand(Up,d);
-                             moteur.addCommand(up);
-                        }
-                          //  moteur.moveElement(Up,d);
-                            break;
-                        case sf::Keyboard::Down:
-                            
-                        {
-                            anim2.y=Down;
-                             MoveCommand *down = new MoveCommand(Down,d);
-                             moteur.addCommand(down);
-                        }
-                         //   moteur.moveElement(Down,d);
-                            break;
-                            
-                        case sf::Keyboard::Space:
-                            moteur.attack(d,c);
-                            break;
-                            
-                        default:
-                            break;
-                    }
-                    
-                default:
-                    break;
+    // Premier appel pour cette requête
+    if (!request) { 
+        request = new Request();
+        if (!request) {
+            return MHD_NO;
+        }
+        *ptr = request;
+        if (strcmp(method, MHD_HTTP_METHOD_POST) == 0
+         || strcmp(method, MHD_HTTP_METHOD_PUT) == 0) {
+            request->pp = MHD_create_post_processor(connection,1024,&post_iterator,request);
+            if (!request->pp) {
+                cerr << "Failed to setup post processor for " << url << endl;
+                return MHD_NO;
             }
-        } 		
-				
-	//IA         
-            anim.y=iaPerso.ExecuteGroupAI(moteur, etat.characterlist);
-            
-
-            
-        //Gestion sorties de map    
-            for (auto a : etat.characterlist){
-                if (a->getX() < 52){
-                    a->setX(52);
-                }
-                
-                if (a->getY()<47){
-                    a->setY(52);
-                }
-                
-                if (a->getX()>903){
-                    a->setX(903);
-                }
-                
-                if (a->getY()>285){
-                    a->setY(300);
-                }
-            }
-            
-            
-        // on dessine le niveau
-        if (updateGame)
-            if (clock.getElapsedTime().asMilliseconds() > 50){
-                anim.x--;
-                if (anim.x*64 >= texture.getSize().x)
-                    anim.x=2;
-                
-                clock.restart();
-            }
-        
-        sprite.setTextureRect(sf::IntRect(anim.x * 64, anim.y*64, 64, 64));
-        sprite2.setTextureRect(sf::IntRect(anim2.x * 64, anim2.y*64, 64, 64));
-         
-        window.clear();
-
-        window.draw(map);
-        
-        if (c->getHitPoints()!=0) window.draw(sprite);
-        window.draw(sprite2);
-        window.display();
+        }
+        return MHD_YES;
+    }    
+    
+    // Cas où il faut récupérer les données envoyés par l'utilisateur
+    if (strcmp(method, MHD_HTTP_METHOD_POST) == 0
+     || strcmp(method, MHD_HTTP_METHOD_PUT) == 0) {
+        MHD_post_process(request->pp,upload_data,*upload_data_size);
+        if (*upload_data_size != 0) {
+            request->data = upload_data;
+            *upload_data_size = 0;
+            return MHD_YES;
+        }    
     }
 
-    cout << "It works !" << endl;
-    t1.join();
+    HttpStatus status;
+    string response;
+    try {
+
+        ServicesManager *manager = (ServicesManager*) cls;
+        status = manager->queryService(response,request->data,url,method);
+    }
+    catch(ServiceException& e) {
+        status = e.status();
+        response = e.what();
+        response += "\n";
+    }
+    catch(exception& e) {
+        status = HttpStatus::SERVER_ERROR;
+        response = e.what();
+        response += "\n";
+    }
+    catch(...) {
+        status = HttpStatus::SERVER_ERROR;
+        response = "Unknown exception\n";
+    }
+
+    struct MHD_Response *mhd_response;
+    mhd_response = MHD_create_response_from_buffer(response.size(),(void *)response.c_str(),MHD_RESPMEM_MUST_COPY);
+    if (strcmp(method,MHD_HTTP_METHOD_GET) == 0) {
+        MHD_add_response_header(mhd_response,"Content-Type","application/json; charset=utf-8");
+    }
+    int ret = MHD_queue_response(connection, status, mhd_response);
+    MHD_destroy_response(mhd_response);
+    return ret;
+}
+
+int main(int argc, char *const *argv)
+{
+    try {
+        ServicesManager servicesManager;
+//        servicesManager.registerService(make_unique<VersionService>());
+
+        UserDB userDB;
+        userDB.addUser(make_unique<User>("Paul",23));
+//        servicesManager.registerService(make_unique<UserService>(std::ref(userDB)));
+
+        struct MHD_Daemon *d;
+        if (argc != 2) {
+            printf("%s PORT\n", argv[0]);
+            return 1;
+        }
+        d = MHD_start_daemon(// MHD_USE_SELECT_INTERNALLY | MHD_USE_DEBUG | MHD_USE_POLL,
+                MHD_USE_SELECT_INTERNALLY | MHD_USE_DEBUG,
+                // MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG | MHD_USE_POLL,
+                // MHD_USE_THREAD_PER_CONNECTION | MHD_USE_DEBUG,
+                atoi(argv[1]),
+                NULL, NULL, 
+                &main_handler, (void*) &servicesManager,
+                MHD_OPTION_NOTIFY_COMPLETED, request_completed, NULL,
+                MHD_OPTION_END);
+        if (d == NULL)
+            return 1;
+        cout << "Pressez <entrée> pour arrêter le serveur" << endl;
+        (void) getc(stdin);
+        MHD_stop_daemon(d);
+    }
+    catch(exception& e) {
+        cerr << "Exception: " << e.what() << endl;
+    }
     return 0;
 }
