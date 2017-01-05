@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "state.h"
 #include "rendu.h"
-#include "rendu/Tile.h"
+//#include "rendu/Tile.h"
 #include "engine.h"
 #include "ia.h"
 #include "unistd.h"

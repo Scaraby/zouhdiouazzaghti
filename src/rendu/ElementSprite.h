@@ -17,8 +17,10 @@ namespace rendu {
   class ElementSprite : public rendu::Pont, public rendu::PositionObs {
     // Operations
   public:
+    ElementSprite ();
     void notifyPosX (int x);
     void notifyPosY (int y);
+    ~ElementSprite ();
   };
 
 };

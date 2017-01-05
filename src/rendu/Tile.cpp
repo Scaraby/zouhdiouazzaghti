@@ -10,6 +10,11 @@
 
 
 namespace rendu {
+
+ Tile::Tile() { 
+     
+ }
+
   
 bool Tile::load(const std::string& tileset, sf::Vector2u tileSize, std::vector<int>& tiles, unsigned int width, unsigned int height){
        if (!m_tileset.loadFromFile(tileset))
@@ -60,5 +65,11 @@ bool Tile::load(const std::string& tileset, sf::Vector2u tileSize, std::vector<i
         target.draw(m_verticles, states);
 }
  
+ Tile::~Tile() { 
+     
+ }
+
+
 }    
+
 

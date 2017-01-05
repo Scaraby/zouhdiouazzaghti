@@ -22,9 +22,11 @@ namespace rendu {
     sf::Texture m_tileset;
     // Operations
   public:
+    Tile ();
     bool load (const std::string& tileset, sf::Vector2u tileSize, std::vector<int>& tiles, unsigned int width, unsigned int height);
     void draw (sf::RenderTarget& target, sf::RenderStates states) const;
     int generateMap ();
+    ~Tile ();
   };
 
 };

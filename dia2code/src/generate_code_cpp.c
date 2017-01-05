@@ -639,6 +639,7 @@ struct stdlib_includes {
    int stdint;
    int stdlib;
    int vector;
+   int json;
    int memory;
    int map;
    int unordered_map;
@@ -666,6 +667,10 @@ void print_include_stdlib(struct stdlib_includes* si,char* name) {
        ||  strstr(name,"uint64_t"))) {
            print ("#include <stdint.h>\n");
            si->stdint = 1;
+       }
+	   if (!si->json && strstr(name,"Json::")) {
+           print ("#include <json/json.h>\n");
+           si->json = 1;
        }
        if (!si->stdlib && strstr(name,"size_t")) {
            print ("#include <stdlib.h>\n");
